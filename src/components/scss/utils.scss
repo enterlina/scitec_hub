@@ -1,0 +1,17 @@
+@import './components/_buttons.scss';
+
+.link-no-text {
+  font-size: 0;
+  display: inline-block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.formula {
+  font-family: 'PT Serif', serif;
+  font-size: 16px;
+  font-style: italic;
+  white-space: nowrap;
+}

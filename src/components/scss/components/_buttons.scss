@@ -1,0 +1,45 @@
+//buttons
+.Button {
+  padding: 5px 10px;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.5s, color 0.5s;
+  will-change: background, color;
+  text-decoration: none;
+
+  &--green {
+    background-color: #5ad89f;
+    border: solid 2px #5ad89f;
+
+    &:hover {
+      background-color: #fff;
+      color: #5ad89f;
+      cursor: pointer;
+    }
+  }
+
+  &--blue {
+    background-color: #30bae7;
+    border: solid 2px #30bae7;
+
+    &:hover {
+      background-color: #fff;
+      color: #30bae7;
+      cursor: pointer;
+    }
+  }
+
+  &--gray {
+    background-color: #ced6db;
+    border: solid 2px #ced6db;
+
+    &:hover {
+      background-color: #fff;
+      color: #ced6db;
+      cursor: pointer;
+    }
+  }
+}

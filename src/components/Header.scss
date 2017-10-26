@@ -1,0 +1,143 @@
+// Header styles
+@import './scss/helpers/variables.scss';
+@import './scss/helpers/placeholders.scss';
+
+.hamburger {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  .hamburger-stripe {
+    display: block;
+    width: 32px;
+    height: 2px;
+    background-color: #000;
+    position: relative;
+  }
+
+  .hamburger-stripe::after,
+  .hamburger-stripe::before {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 2px;
+    background-color: #000;
+  }
+
+  .hamburger-stripe::before {
+    margin-top: -8px;
+  }
+
+  .hamburger-stripe::after {
+    margin-top: 8px;
+  }
+}
+
+.Header {
+  //height: 72px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+
+  &-logo {
+    background: url('#{$publicPath}img/logo.svg') no-repeat;
+    background-position: center;
+    //height: 100%;
+    display: block;
+    width: 137px;
+  }
+
+  &-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    font-size: 16px;
+
+    li {
+      list-style-type: none;
+
+      a {
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        line-height: normal;
+        will-change: background, color;
+        padding: 31px 17px 21px;
+        transition: background 0.2s, color 0.3s;
+
+        &::before {
+          font-size: 20px;
+        }
+
+        &:hover,
+        &.active-link {
+          background: #5ad89f;
+          color: #fff;
+        }
+
+        &.plasma {
+          background-image: url(#{$publicPath}img/plasma.svg);
+          background-color: transparent;
+          background-size: cover;
+          width: 71px;
+          display: none;
+          height: 73px;
+          box-sizing: border-box;
+          margin: 0 10px;
+
+          &:hover {
+            background-image: url(#{$publicPath}img/plasma.svg);
+            background-color: transparent;
+            background-size: cover;
+          }
+        }
+      }
+    }
+
+    li.about-project {
+      display: none;
+    }
+
+    .lang-selector {
+      display: none;
+      padding: 15px;
+
+      a {
+        display: block;
+        font-weight: normal;
+        padding: 0;
+
+        &:hover,
+        &.lang-active {
+          background: none;
+          color: #000;
+          text-decoration: underline;
+        }
+      }
+
+      span + a {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Header {
+    &-navigation {
+      li.about-project {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* TODO: styles for mobile */
+}

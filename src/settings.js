@@ -1,0 +1,1 @@
+export const apiUrl = 'https://scihub.herokuapp.com/api';

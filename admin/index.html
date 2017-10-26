@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body >
+    <div id="message"></div>
+    <form id="admin-form">
+      Тип: 
+      <select name="type" id="optionSelector">
+        <option></option>
+        <option value="Research">Исследование</option>
+        <option value="Startup">Стартап</option>
+        <option value="Scientist">Ученый</option>
+        <option value="Startuper">Стартапер</option>
+        <option value="Business">Бизнес</option>
+        <option value="Tender">Тендер</option>
+        <option value="Meetup">Митап</option>
+        <option value="Fund">Фонд</option>
+        <option value="Accelerator">Акселератор</option>
+      </select>
+      <div id="root">
+
+      </div>
+      <input type="button" id="save" name="save" value="Save">
+    </form>
+    
+  </body>
+  <script>
+    const root = document.getElementById('root');
+
+    // Meetup
+    const meetupElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Название",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "datetime-local",
+        title: "Дата",
+        name: "date",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "datetime-local",
+        title: "Дата До",
+        name: "dateTo",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Место",
+        name: "meetupPlace",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Регистрация (ссылка)",
+        name: "regLink",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isArray: true
+      },
+      {
+        tag: 'textarea',
+        title: "Описание",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        title: "Сайт организатора",
+        name: "eventHolder",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (Имя) (Если заполняешь кастом автора, то должны быть заполнены все его поля)",
+        name: "custom_author_name",
+        id: "custom_author",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (контакты). Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка",
+        name: "custom_author_contacts",
+        id: "custom_author_contacts",
+        isMultilang: false,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (описание).",
+        name: "custom_author_description",
+        id: "custom_author_description",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Видео",
+        name: "video", 
+        isMultilang: false
+      },
+       {
+        tag: 'input',
+        type: "text",
+        title: "Презентация",
+        name: "presentation", 
+        isMultilang: false
+      },
+      {
+        tag: 'textarea',
+        title: "Инфо",
+        name: "info",
+        isMultiArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Стиль",
+        name: "style",
+        isMultilang: false,
+        value: "bg-default"
+      }
+
+    ];
+
+    // Tender
+    const tenderElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Название",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Награда",
+        name: "tenderReward",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "date",
+        title: "Дедлайн",
+        name: "tenderDeadline",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Статус",
+        name: "status",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        title: "Описание",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Компания(только ID и запятые, никаких пробелов)",
+        name: "_author",
+        id: "_author",
+        isMultilang: false,
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (Имя) (Если заполняешь кастом автора, то должны быть заполнены все его поля)",
+        name: "custom_author_name",
+        id: "custom_author",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (контакты). Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка",
+        name: "custom_author_contacts",
+        id: "custom_author_contacts",
+        isMultilang: false,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (описание).",
+        name: "custom_author_description",
+        id: "custom_author_description",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Ключевые слова",
+        name: "tags",
+        isMultilang: true,
+        isArray: true
+      },
+      {
+        tag: 'textarea',
+        title: "Инфо",
+        name: "info",
+        isMultiArray: true
+
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Стиль",
+        name: "style",
+        isMultilang: false,
+        value: "bg-default"
+      }
+
+    ];
+
+
+    const researchElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Название",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Видео",
+        name: "video", 
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Авторы(только ID и запятые, никаких пробелов)",
+        name: "_author",
+        id: "_author",
+        isMultilang: false,
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (Имя) (Если заполняешь кастом автора, то должны быть заполнены все его поля)",
+        name: "custom_author_name",
+        id: "custom_author",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (контакты). Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка",
+        name: "custom_author_contacts",
+        id: "custom_author_contacts",
+        isMultilang: false,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (описание).",
+        name: "custom_author_description",
+        id: "custom_author_description",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Цель",
+        name: "goal",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Проблема",
+        name: "problem",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Решение и новизна",
+        name: "solution",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Методы",
+        name: "methods",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Рекомендации",
+        name: "recommendation",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Применение",
+        name: "use",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Ключевые слова",
+        name: "tags",
+        isMultilang: true,
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "date",
+        title: "Дата",
+        name: "date",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Скачать",
+        name: "download",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Стиль",
+        name: "style",
+        isMultilang: false,
+        value: "bg-default"
+      }
+
+    ]
+
+    const startupElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Название",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Авторы (только ID и запятые, никаких пробелов)",
+        name: "_author",
+        id: "_author",
+        isMultilang: false,
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (Имя) (Если заполняешь кастом автора, то должны быть заполнены все его поля)",
+        name: "custom_author_name",
+        id: "custom_author",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (контакты). Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка",
+        name: "custom_author_contacts",
+        id: "custom_author_contacts",
+        isMultilang: false,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (описание).",
+        name: "custom_author_description",
+        id: "custom_author_description",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Видео",
+        name: "video", 
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Презентация",
+        name: "presentation", 
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Стадия",
+        name: "stage",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Проблема",
+        name: "problem",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Решение",
+        name: "solution",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Демо",
+        name: "demo",
+        isMultilang: false
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Кого ищем",
+        name: "needTofind",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Навыки",
+        name: "skills",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Ключевые слова",
+        name: "tags",
+        isMultilang: true,
+        isArray: true
+      },
+      {
+        tag: 'textarea',
+        title: "Инфо",
+        name: "info",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Стиль",
+        name: "style",
+        isMultilang: false,
+        value: "bg-default"
+      }
+
+    ];
+
+
+
+    const scientistElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Имя",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Контакты. ",
+        name: "contacts",
+        isMultilang: false,
+        isMultiArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Специализация",
+        name: "specialization",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Должность",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "date",
+        title: "Дата",
+        name: "creationDate",
+        isMultilang: false
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Публикации ",
+        name: "publications",
+        isMultilang: false,
+        isMultiArray: true
+      },
+      {
+        tag: 'textarea',
+        title: "Проекты ",
+        name: "projects",
+        isMultilang: false,
+        isMultiArray: true
+      }
+
+    ];
+
+
+    const startuperElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Имя",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Контакты. ",
+        name: "contacts",
+        isMultilang: false,
+        isMultiArray: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Описание",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Специализация",
+        name: "specialization",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "date",
+        title: "Дата",
+        name: "creationDate",
+        isMultilang: false
+      },
+      {
+        tag: 'textarea',
+        title: "Проекты ",
+        name: "projects",
+        isMultilang: false,
+        isMultiArray: true
+      }
+
+    ];
+
+    const companyElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Компания",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Специализация",
+        name: "specialization",
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Контакты. ",
+        name: "contacts",
+        isMultilang: false,
+        isMultiArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Отрасль",
+        name: "sphere",
+        isArray: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Описание",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "date",
+        title: "Дата",
+        name: "creationDate",
+        isMultilang: false
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "сайт ",
+        name: "site",
+        isMultilang: false
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Адрес ",
+        name: "address",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        title: "Вакансии",
+        name: "job",
+        isMultilang: true,
+        isArray: true,
+      }
+
+    ]
+
+
+    let wrapper = document.createElement('div');
+    let optionSelector = document.getElementById('optionSelector');
+    let saveBtn = document.getElementById('save');
+    let form = document.getElementById('admin-form');
+    let message = document.getElementById('message');
+    
+
+    saveBtn.addEventListener('click', () => {
+      let result = JSON.stringify(convertData(form.elements));
+      message.innerHTML = 'In progress...';
+      let type = form.elements.type.value;
+
+      if(type == "Research" || type == "Startup" || type == "Tender" || type == "Meetup") {    
+          fetch('https://scihub.herokuapp.com/api/card/add', {
+              method: 'post',
+              body: result,
+              headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+              }
+          })
+          .then((result)=>{
+            message.innerHTML = result.statusText;
+          })
+
+      } else if(type == "Scientist" || type == "Startuper" || type == "Business" || type == "Fund" || type == "Accelerator") {    
+          fetch('https://scihub.herokuapp.com/api/persons/add', {
+              method: 'post',
+              body: result,
+              headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+              }
+          })
+          .then((result)=>{
+            message.innerHTML = result.statusText;
+          })
+
+      }
+    })
+    function multipleArrayConvert(string) {
+      let contacts = string.split(';');
+        let contactsArr = []
+
+        contacts.map((item) => {
+          contactsArr.push(item.split(','))
+        })
+
+        return contactsArr;
+    }
+    function convertData(elements) {
+      let result = {};
+      for(let i = 0; i < elements.length; i++) {
+        let field = elements[i];
+        let name = field.name;
+        if(name.indexOf('_en') == -1 && name != "save") {
+          let isArray = field.dataset.isarray == 'true' ? true : false;
+          let isMultiArray = field.dataset.ismultiarray == 'true' ? true : false;
+          if(elements[name + '_en'] == undefined) {
+            if(field.value != '') {
+              result[name] = isArray ? field.value.split(',') : field.value;
+              result[name] = isMultiArray ? multipleArrayConvert(field.value) : field.value;
+            }
+            
+          } else {
+            result[name] = [];
+            let value = isArray ? field.value.split(',') : field.value;
+            value = isMultiArray ? multipleArrayConvert(field.value) : field.value;
+            result[name].push({
+              "ru": value
+            })
+            if(elements[name + '_en'].value.length != 0) {  
+              let value = isArray ? elements[name + '_en'].value.split(',') : elements[name + '_en'].value
+                  value = isMultiArray ? multipleArrayConvert( elements[name + '_en'].value) : elements[name + '_en'].value;    
+              result[name].push({
+                "en": value
+              })
+            }
+          }
+        } 
+      }
+      if(result.custom_author_contacts != undefined && result.custom_author_description != undefined && result.custom_author_name != undefined && result.custom_author_contacts != '' && result.custom_author_description!='' && result.custom_author_name != ''){
+        let contacts = result.custom_author_contacts.split(';');
+        let contactsArr = []
+
+        contacts.map((item) => {
+          contactsArr.push(item.split(','))
+        })
+
+        let customAuthor = [
+          {
+            name: result.custom_author_name,
+            description: result.custom_author_description,
+            contacts: contactsArr,
+            isCustom: true
+          }
+        ]
+
+        result.customAuthor = customAuthor;
+
+        delete result.custom_author_name;
+        delete result.custom_author_description;
+        delete result.custom_author_contacts;
+      } 
+      return result;
+    }
+
+    function renderFields(item) {
+      let arrayText = " (вводить через запятую)";
+      let multiArrayText = "(Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка)";
+      let row = document.createElement('p');
+
+      row.innerText = item.title;
+      row.innerText += item.isArray ? arrayText : '';
+      row.innerText += item.isMultiArray ? multiArrayText : '';
+      row.innerText += ': ';
+
+      let element = document.createElement(item.tag);
+          element.setAttribute('id', item.id ? item.id : item.name);
+          element.setAttribute('type', item.type);
+          element.setAttribute('name', item.name);
+          if(item.value){element.setAttribute('value', item.value) };
+          element.setAttribute('data-isarray', item.isArray ? item.isArray : false);
+          element.setAttribute('data-ismultiarray', item.isMultiArray ? item.isMultiArray : false);
+          row.appendChild(element);
+
+          if(item.isMultilang) {
+            let elementEn = document.createElement(item.tag);
+            elementEn.setAttribute('id', item.id ? item.id + '_en' : item.name + '_en');
+            elementEn.setAttribute('type', item.type);
+            
+            if(item.value){elementEn.setAttribute('value', item.value) };
+            elementEn.setAttribute('placeholder', 'English version');
+            elementEn.setAttribute('name', item.name + '_en');
+            element.setAttribute('data-isarray', item.isArray ? item.isArray : false);
+            element.setAttribute('data-ismultiarray', item.isMultiArray ? item.isMultiArray : false);
+
+            row.appendChild(elementEn);
+          }
+
+          wrapper.appendChild(row)
+    }
+
+    optionSelector.addEventListener('change', function() {
+      wrapper.innerHTML = '';
+      root.innerHTML = '';
+      switch(this.value) {
+          case "Research":
+              researchElements.map(renderFields);
+              break;
+          case "Startup":
+              startupElements.map(renderFields);
+              break;
+          case "Scientist":
+              scientistElements.map(renderFields);
+              break;
+          case "Business":
+              companyElements.map(renderFields);
+              break;
+          case "Startuper":
+              startuperElements.map(renderFields);
+              break;
+          case "Tender":
+              tenderElements.map(renderFields);
+              break;
+          case "Meetup":
+              meetupElements.map(renderFields);
+              break;
+          case "Fund":
+              companyElements.map(renderFields);
+              break;
+          case "Accelerator":
+              companyElements.map(renderFields);
+              break;
+      }
+      root.appendChild(wrapper);
+      message.innerHTML = '';
+    })
+
+
+
+  </script>
+
+</html>

@@ -1,0 +1,150 @@
+.InfoPage .InfoPage--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.InfoPage.Article h2 {
+  text-transform: uppercase;
+}
+
+.InfoPage.Article .InfoPage--term {
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.InfoPage--term {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.InfoPage--term > div {
+  flex: 1 1 10%;
+}
+
+.InfoPage--term .InfoPage--termKey {
+  flex-grow: 0.08;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.InfoPage--term .InfoPage--termDescription {
+  flex-grow: 10;
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 650px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+
+  .formula {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.InfoPage--termCard {
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 15px;
+  }
+}
+
+.InfoPage--heading {
+  margin-bottom: 25px;
+  border-bottom: solid 2px #152033;
+}
+
+.InfoPage.Article .InfoPage--heading {
+  border: none;
+  margin: 0;
+}
+
+.InfoPage.Article a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.InfoPage--heading h1,
+.InfoPage h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 13px 0;
+}
+
+.InfoPage--heading i {
+  float: left;
+  margin-right: 10px;
+}
+
+.InfoPage--heading i::before {
+  font-size: 70px;
+}
+
+.InfoPage--heading span {
+  font-size: 14px;
+}
+
+.InfoPage .AuthorCard h2 {
+  margin: 2px 0 13px;
+}
+
+@media screen and (max-width: 910px) {
+  .InfoPage--term {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .InfoPage--term .InfoPage--termDescription {
+    iframe {
+      width: 100%;
+    }
+  }
+}
+
+.placeholder::before {
+  content: '';
+  display: block;
+  width: 160px;
+  height: 80px;
+  background-color: #f7f7f7;
+  margin-bottom: 10px;
+}
+
+.file_description {
+  display: block;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

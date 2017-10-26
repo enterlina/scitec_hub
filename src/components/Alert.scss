@@ -1,0 +1,22 @@
+.Alert {
+  position: fixed;
+  max-width: 1000px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  background: #fff;
+  color: #000;
+}
+
+.Alert.success {
+  background: green;
+}
+
+.Alert.warning {
+  background: yellow;
+}
+
+.Alert.error {
+  background: red;
+}

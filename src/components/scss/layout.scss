@@ -1,0 +1,88 @@
+
+.layout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.layout-container--white {
+  background: #fff;
+  padding: 25px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.layout-container.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout-container.heading h2 {
+  text-transform: uppercase;
+  font-size: 20px;
+  padding-left: 10px;
+  margin: 20px 0 10px;
+  display: inline-block;
+}
+
+.layout-container.noPadding {
+  padding: 0;
+  padding-top: 5px;
+}
+
+.layout-container.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.layout-navbar {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.layout-cardFrame {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
+  min-width: 400px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    //width: 1170px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    //width: 970px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Card-wrapper {
+    border: 0;
+  }
+
+  .Card-externalBound {
+    min-width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .layout-cardFrame {
+    min-width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .Card {
+    max-width: 100%;
+    margin: 10px;
+  }
+}

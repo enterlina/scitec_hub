@@ -1,0 +1,34 @@
+.AuthorCard h2 {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 2px 0 10px;
+}
+
+.AuthorCard h2 a {
+  color: #152033;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.AuthorCard p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.AuthorCard ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.AuthorCard ul {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.InfoPage--termDescription.AuthorCard .AuthorCard h2 {
+  margin: 0;
+}

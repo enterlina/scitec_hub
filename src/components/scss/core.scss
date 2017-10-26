@@ -1,0 +1,25 @@
+body {
+  background: #e6e6e6;
+  font-family: 'PT Sans Caption', sans-serif;
+}
+
+.searchItems,
+.searchFieldWrapper {
+  width: 1000px;
+}
+
+a {
+  color: #4990e2;
+}
+
+.backlink {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  color: #5ad89f;
+  text-decoration: none;
+
+  &::before {
+    content: '< ';
+  }
+}

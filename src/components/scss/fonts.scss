@@ -1,0 +1,71 @@
+@import './helpers/variables.scss';
+@import './helpers/placeholders.scss';
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('#{$publicPath}fonts/icomoon.eot?9nh6ei');
+  src:
+    url('#{$publicPath}fonts/icomoon.eot?9nh6ei#iefix') format('embedded-opentype'),
+    url('#{$publicPath}fonts/icomoon.ttf?9nh6ei') format('truetype'),
+    url('#{$publicPath}fonts/icomoon.woff?9nh6ei') format('woff'),
+    url('#{$publicPath}fonts/icomoon.svg?9nh6ei#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  display: inline-block !important;
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-size: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+  font-size: 16px;
+}
+
+.icon-search::before {
+  content: "\e900";
+}
+
+.icon-tender::before {
+  content: "\e901";
+}
+
+.icon-research::before {
+  content: "\e902";
+}
+
+.icon-startup::before {
+  content: "\e903";
+}
+
+.icon-arrow::before {
+  content: "\e904";
+}
+
+.icon-marker-research::before {
+  content: "\e905";
+  color: #29abe2;
+}
+
+.icon-marker-startup::before {
+  content: "\e906";
+  color: #5ddba3;
+}
+
+.icon-meetup::before {
+  content: "\e907";
+}

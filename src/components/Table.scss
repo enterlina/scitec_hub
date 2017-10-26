@@ -1,0 +1,94 @@
+@import './scss/helpers/variables.scss';
+@import './scss/helpers/placeholders.scss';
+@import './scss/helpers/functions.scss';
+
+.Table {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  font-size: 14px;
+
+  &--row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+
+    &:nth-child(odd) {
+      .Table--item {
+        background: #f7f7f7;
+      }
+    }
+  }
+
+  &--item.Table--headingItem {
+    padding: 4px 0;
+    background: #f7f7f7;
+    width: 100%;
+    color: #818791;
+  }
+
+  &--item {
+    background: #fff;
+    width: 100%;
+    padding: 16px;
+    flex: 1 1 10%;
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    &:first-child {
+      padding-left: 30px;
+      flex-grow: 4;
+    }
+
+    &:first-child:not(.Table--headingItem) {
+      padding-right: 30px;
+    }
+
+    &:last-child {
+      padding-right: 30px;
+      flex-grow: 2;
+    }
+  }
+}
+
+.layout-tenders .Table--item:not(.Table--headingItem):nth-child(1),
+.layout-tenders .Table--item:not(.Table--headingItem):nth-child(2),
+.layout-tenders .Table--item:not(.Table--headingItem):nth-child(3) {
+  font-weight: bold;
+}
+
+.showMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .Table--headingItem {
+    display: none;
+  }
+
+  .Table--row {
+    flex-direction: column;
+    padding-bottom: 15px;
+  }
+
+  .Table--item {
+    padding: 10px 30px;
+    box-sizing: border-box;
+  }
+
+  .showMobile {
+    display: block;
+    margin-bottom: 10px;
+    color: #818791;
+  }
+}
+

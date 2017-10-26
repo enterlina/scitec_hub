@@ -1,0 +1,28 @@
+.SortableFields {
+  margin: 0;
+  padding: 10px 25px;
+  display: block;
+  border-bottom: solid 2px #5ad89f;
+}
+
+.SortableFields li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.SortableFields li a {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #152033;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.SortableFields li a.active-link {
+  color: #fff;
+  padding: 5px 10px;
+  background-color: #54e4a3;
+}
