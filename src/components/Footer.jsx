@@ -36,7 +36,7 @@ class Footer extends React.Component {
                     <div className="Footer-grid-first-column">
                         <ul className="Footer-navigation" role="navigation">
                             <li><Link to="/Research" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
-                            <li><Link to="/Startup" className={this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.COMPANIES || 'Companies'}</Link></li>
+                            <li><Link to="/Startup" className={this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.COMPANIESn || 'Companies'}</Link></li>
                             <li className="about-project"><Link to="/Article/59b69a108b639c0ce1d52166">{this.props.lang.ABOUT_US || 'About Us'}</Link></li>
                         </ul>
                     </div>
