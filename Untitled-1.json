@@ -1,0 +1,205 @@
+{
+    "_id" : ObjectId("599e933e8b639c0ce1daf8cc"),
+    "name" : "sphere",
+    "options" : [ 
+        {
+            "name" : "PHISMAT",
+            "options" : [ 
+                {
+                    "name" : "MATH",
+                    "options" : [ 
+                        "VESH_KOMPL_FUNCT_ANALYZE", 
+                        "DIF_URAVN", 
+                        "MAT_FIZ", 
+                        "GEOM_TOPOLOG", 
+                        "TER_VER_MAT_STAT", 
+                        "MAT_LOG_ALG", 
+                        "VICH_MAT", 
+                        "DISKT_MAT_MAT_KIB"
+                    ]
+                }, 
+                {
+                    "name" : "MECHANICS",
+                    "options" : [ 
+                        "TER_MECH", 
+                        "MECH_DEF_TV_TELA", 
+                        "MECH_JIDKOSTY", 
+                        "DINAMIC_PROCHNOST_PRIBOROV_APP", 
+                        "BIOMECH"
+                    ]
+                }, 
+                {
+                    "name" : "ASTRONOMIA",
+                    "options" : [ 
+                        "ASTROMETRIA", 
+                        "ASTROPHISICKS", 
+                        "PHISICKS_SUN", 
+                        "PLANET_RESEARCHES"
+                    ]
+                }, 
+                {
+                    "name" : "PHISYCS",
+                    "options" : [ 
+                        "PRIBORY", 
+                        "TER_PHYSICS", 
+                        "RADIOPHISICS", 
+                        "PHISIC_ELECTR", 
+                        "OPTICS", 
+                        "ACUSTICS", 
+                        "PHISI_KOND_SOST", 
+                        "PHISI_PLASM", 
+                        "PHISI_NIZK_TEMP", 
+                        "PHISI_POLUPROVODN", 
+                        "PHISI_MAGN_JAVL", 
+                        "EL_PHISI", 
+                        "TEPLOPHISI", 
+                        "PHISI_NANOSTR", 
+                        "PHISI_AT_JADRA", 
+                        "HIM_PHISI", 
+                        "KRISTALLOGRAPHIA", 
+                        "PHISI_ZAR_CHAST", 
+                        "LAZ_PHISI", 
+                        "PHISI_VIS_EN"
+                    ]
+                }
+            ]
+        }, 
+        {
+            "name" : "TECHNICS",
+            "options" : [ 
+                "INJ_GEOM_KOMP_GR", 
+                "MASHINOST_MASHINOVED", 
+                "EN_MET_HIM_MASHINOST", 
+                "TRANSPORTN_GORN_STR_MASHINOSTR", 
+                "AVIAC_RACKET_TECH", 
+                "KORABLESTR", 
+                "ELECTROTECH", 
+                "PRIBOROSTR_METROLOG_IZM_PRIB", 
+                "RADIOTECH_SVYAZ", 
+                "INFORMATIKA_VICH_TECH_UPR", 
+                "ENERGETICS", 
+                "METALLURG_METALLOVED", 
+                "HIM_TECHNOLOG", 
+                "TECHN_PROD_PRODUCTOV", 
+                "TECHN_MATER_IZDEL_TEKST_LEGK_PROM", 
+                "PROCESSES_MASH_AGROING_SIST", 
+                "TECHNOLOG_MASH_OBORUD_LESOZAGOTOV_LESN_HOZ_DEREVOPERERAB", 
+                "TRANSPORT", 
+                "STROIT_ARHIT", 
+                "DOCUMENT_INFORM", 
+                "BEZOPASN_DEYAT_CHEL", 
+                "ELECTRONICS"
+            ]
+        }, 
+        {
+            "name" : "CHEMISTRY",
+            "options" : [ 
+                "HIM_NAUKI", 
+                "NEORG_HIMIA", 
+                "ANALIT_HIMIA", 
+                "ORGAN_HIMIA", 
+                "PHIS_HIMIA", 
+                "ELECTR_HIMIA", 
+                "VISOKOMOL_SOED", 
+                "HIMIA_ELECTROORG_SOED", 
+                "HIMIA_VIS_ENERG", 
+                "BIOORG_HIMIA", 
+                "KOLLOIDN_HIMIA", 
+                "BIONEORG_HIMIA", 
+                "KOLOIDN_HIMIA", 
+                "BIONEORG_HIMIA", 
+                "NEFTEHIMIA", 
+                "RADIOHIMIA", 
+                "KINETIKA_CATALYZ", 
+                "MED_HIMIA", 
+                "MAT_KVANT_HIMIA", 
+                "HIMIA_TV_TELA"
+            ]
+        }, 
+        {
+            "name" : "BIOLOGY",
+            "options" : [ 
+                {
+                    "name" : "PHIS_HIM_BIOLOG",
+                    "options" : [ 
+                        "BIOPHIS", 
+                        "MOL_BIOLOG", 
+                        "BIOHIM", 
+                        "PHISIOL", 
+                        "MOL_GENETIKA", 
+                        "BIOINGENERIA", 
+                        "MAT_BIOLOGIA", 
+                        "RADIOBIOLOGY", 
+                        "BIOTECHNOLOG"
+                    ]
+                }, 
+                {
+                    "name" : "OBSH_BIOLOG",
+                    "options" : [ 
+                        "ZOOLOGIA", 
+                        "ENTOMOLOGIA", 
+                        "IHTIOLOGIA", 
+                        "ECOLOGIA", 
+                        "BIOGEOHIMIA", 
+                        "GIDROBILOGIA", 
+                        "MIKOLOGIA", 
+                        "POCHVOVED", 
+                        "BIOL_RESURS", 
+                        "VIRUSOLOG", 
+                        "MICROBIOLOG", 
+                        "GENETICA", 
+                        "PARAZITOLOGIA", 
+                        "BOTANICA"
+                    ]
+                }, 
+                {
+                    "name" : "PHISIOLOG",
+                    "options" : [ 
+                        "ANTROPOLOGIA", 
+                        "KLET_BIOLOG", 
+                        "BIOLOGIA_RAZV", 
+                        "NEIROBIOLOGIA", 
+                        "PHISIOLOGIA", 
+                        "IMMUNOLOGIA"
+                    ]
+                }
+            ]
+        }, 
+        {
+            "name" : "MEDICINSK",
+            "options" : [ 
+                "MED_NAUKI", 
+                "AKUSHERSTV_GINEK", 
+                "ENDOKRINOLOG", 
+                "BOLEZNI_UCHA", 
+                "VNUTR_BOL", 
+                "KARDIOLOGIA", 
+                "PSIHIATRIA", 
+                "GLAZN_BOL", 
+                "PEDIATR", 
+                "INF_BOLEZN", 
+                "KOZN_VEN_BOL", 
+                "NERVN_BOL", 
+                "ONKOLOG", 
+                "LUCH_DIAGN", 
+                "STOMAT", 
+                "TRAVM_ORTOPEDIA", 
+                "PHTIZIATR", 
+                "HIRURG", 
+                "NEIROHIRURG", 
+                "DETSK_HIRURG", 
+                "ANEST_REANIMAT", 
+                "GEMATOLOG", 
+                "REVMATOLOG", 
+                "UROLOGIA", 
+                "TRANSPLANTOLOGIA", 
+                "PULMONOLOGIA", 
+                "SERD_SOS_HIRURG", 
+                "NARKOLOGIA", 
+                "GASTROLOGIA", 
+                "NEFROLOGIA", 
+                "GERONTOLOGIA"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "name" : "COMPAIES_FIELDS",
+    "options" : [ 
+        {
+                "name" : "ALL",
+                "options" : [ 
+                "AEROSPACE", 
+                "ARTIFICIAL_INTEL", 
+                "AUTOMOTIVE", 
+                "BIG_DATA", 
+                "CLOUD_COMP", 
+                "DEV_TOOLS", 
+                "EDUCATION", 
+                "ENTERPISE_SOFT",
+                "FINANCE",
+                "HARDWARE",
+                "HEALTHCARE",
+                "INT_OF_THINGS",
+                "LIFE_SCIENCE",
+                "MACHINE_LEARN",
+                "MANUFACTURING",
+                "MARKETING",
+                "MARKETPLACE",
+                "MEDIA",
+                "MOBILE",
+                "NETWORKING",
+                "REAL_EST",
+                "RETAIL",
+                "ROBOTICS",
+                "SMART_DEV",
+                "SOFTWARE",
+                "VIRTUAL_REAL",
+                "WEARABLES"
+                ]
+        }
+    ]     
+}
