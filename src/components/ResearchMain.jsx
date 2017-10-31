@@ -31,7 +31,7 @@ class ResearchMain extends React.PureComponent {
       
       if(cardData.length !=0) {
         let tableData = {
-          fields: ['Название', 'Автор', 'Сфера'],
+          fields: [this.props.lang.TABLE_NAMING, this.props.lang.TABLE_AUTHOR, this.props.lang.TABLE_SPHERE],
           items: []
         };
 

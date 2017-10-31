@@ -43,13 +43,13 @@ class ResearchMain extends React.Component {
       if(cardData.length != 0){
 
         if(filterPeople == "Business") {
-          tableFields = ['Компания', 'Сфера', 'Вакансии'];
+          tableFields = [this.props.lang.TABLE_COMPANY, this.props.lang.TABLE_SPHERE, this.props.lang.TABLE_VACANCIES];
         } else if(filterPeople == "Accelerator") {
-          tableFields = ['Акселераторы', 'Специализация', 'Сфера', 'Вакансия'];
+          tableFields = [this.props.lang.TABLE_ACCELERATORS, this.props.lang.TABLE_SPECIALIZATION, this.props.lang.TABLE_SPHERE, this.props.lang.TABLE_VACANCIES];
         } else if(filterPeople == "Fund") {
-          tableFields = ['Фонд', 'Сфера'];
+          tableFields = [this.props.lang.TABLE_FUND, this.props.lang.TABLE_SPHERE];
         } else {
-          tableFields = ['Название', 'Автор', 'Сфера'];
+          tableFields = [this.props.lang.TABLE_NAMING, this.props.lang.TABLE_AUTHOR, this.props.lang.TABLE_SPHERE];
         }
       
           let tableData = {

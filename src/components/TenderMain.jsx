@@ -30,7 +30,7 @@ class ResearchMain extends React.Component {
       
       if(cardData.length != 0) {
         let tableData = {
-          fields: ['Название', 'Дедлайн', 'Награда', 'Сфера', 'Компания' ],
+          fields: [this.props.lang.TABLE_NAMING, this.props.lang.TABLE_DEADLINE, this.props.lang.TABLE_REVARD, this.props.lang.TABLE_SPHERE, this.props.lang.TABLE_COMPANY ],
           items: []
         };
 

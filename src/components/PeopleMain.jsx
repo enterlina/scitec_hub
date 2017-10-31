@@ -35,13 +35,13 @@ class ResearchMain extends React.Component {
       if(peopleData.length != 0 ){
 
         if(filterPeople == "Scientist") {
-          tableFields = ['Ученый', 'Специализация', 'Сфера', 'Публикации/Патенты'];
+          tableFields = [this.props.lang.TABLE_SCIENTIST, this.props.lang.TABLE_SPECIALIZATION, this.props.lang.TABLE_SPHERE, this.props.lang.TABLE_PUBLICATIONS_AND_PATENTS];
         } else if(filterPeople == "Startuper") {
-          tableFields = ['Контакт', 'Специализация', 'Сфера', 'Проекты'];
+          tableFields = [this.props.lang.TABLE_CONTACT, this.props.lang.TABLE_SPECIALIZATION, this.props.lang.TABLE_SPHERE, this.props.lang.TABLE_PROJECTS];
         } else if(filterPeople == "Business") {
-          tableFields = ['Компания', 'Сфера', 'Вакансии'];
+          tableFields = [this.props.lang.TABLE_COMPANY, this.props.lang.TABLE_SPHERE, this.props.lang.TABLE_VACANCIES];
         } else {
-          tableFields = ['Имя/Название', 'Тип', 'Специализация', 'Сфера', 'Работы/Вакансии'];
+          tableFields = [this.props.lang.TABLE_NAME_AND_NAMING, this.props.lang.TABLE_TYPE, this.props.lang.TABLE_SPECIALIZATION, this.props.lang.TABLE_SPHERE, this.props.lang.TABLE_WORKS_AND_PUBLICATIONS];
         }
       
           let tableData = {
