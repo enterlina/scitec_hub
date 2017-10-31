@@ -1,0 +1,90 @@
+{
+    "name" : "COUNTRIES",
+    "options" : [ 
+            "All",
+            "BELARUS","MOSCOW", "ST. PETERSBURG", "INNOPOLIS",
+             {
+            "name" : "RUSSIA",
+            "options" : [ 
+              {
+                    "name" : "CENTRAL_DIST",
+                    "options" : [ 
+                        "BELGOROD_REG", 
+                        "VORONEZH_REG", 
+                        "IVANOVO_REG", 
+                        "BRYANSK_REG", 
+                        "VLADIMIR_REG",
+                        "KASTROMSKAYA_REG", 
+                        "KALUGA_REG", 
+                        "KURSK_REG", 
+                        "LIPETSK_REG",
+                        "MOSCOW", 
+                        "MOSCOW_REG",
+                        "RYAZAN_REG", 
+                        "SMOLENSK_REG",
+                        "TAMBOV_REG", 
+                        "TVER_REG",
+                        "TULA_REG", 
+                        "YAROSLAVL_REG"
+                    ]
+                },
+                   
+              {
+                    "name" : "NORTHWESTERN_DIST",
+                    "options" : [ 
+                        "STPETERSBURG",
+                        "LENINGRAD_REG",
+                        "MURMANSK_REG",
+                        "KARELIA",
+                        "KOMI"
+                    ]
+                },
+ 
+              {
+                    "name" : "SIBERIAN_DIST",
+                    "options" : [ 
+                        "ALTAI",
+                        "IRKUTSK_REG",
+                        "KEMEROVO",
+                        "KRASNOYARSK_REG",
+                        "NOVOSIBIRSK_REG",
+                        "OMSK_REG",
+                        "BURYATIA",
+                        "TOMSK_REG"
+                    ]
+                },
+
+              {
+                    "name" : "SOUTHERN_DIST",
+                    "options" : [ 
+                        "VOLGOGRAD_REG",
+                        "KRASNODAR_REG",
+                        "CRIMEA",
+                        "ROSTOV_REG"
+                    ]
+                },
+              {
+                    "name" : "URAL_DIST",
+                    "options" : [ 
+                        "SVERDLOVSK_REG",
+                        "TYUMEN_REG",
+                        "CHELYABINSK_REG"
+                    ]
+                },
+              {
+                    "name" : "EASTERN_DIST",
+                    "options" : [ 
+                        "AMUR_REG",
+                        "KAMCHATKA",
+                        "MAGADAN_REG",
+                        "PRIMORSKY",
+                        "KHABAROVSK_REG",
+                        "YAKUTIA"
+                    ]
+                }
+
+            ]
+        }
+    ]      
+ }
+    

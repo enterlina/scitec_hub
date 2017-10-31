@@ -8,11 +8,11 @@ const subscribe = `<!-- Begin MailChimp Signup Form -->
                             <div id="mc_embed_signup">
                             <form style="padding: 0;" action="//sciencehit.us14.list-manage.com/subscribe/post?u=85e324d7c30f904f1f8571443&amp;id=0886f4ed18" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                                 <div id="mc_embed_signup_scroll">
-                            <label for="mce-EMAIL" style="text-transform: uppercase">подписаться на новости</label>
+                            <label for="mce-EMAIL" style="text-transform: uppercase">Get the scientific updates</label>
                             <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email " required>
                                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_85e324d7c30f904f1f8571443_0886f4ed18" tabindex="-1" value=""></div>
-                                <div class="clear"><input type="submit" value="Подписаться" name="subscribe" id="mc-embedded-subscribe" class="Button Button--blue"></div>
+                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="Button Button--blue"></div>
                                 </div>
                             </form>
                             </div>
@@ -61,16 +61,16 @@ class Footer extends React.Component {
                     <div className="Footer-grid-third-column">
                         <div dangerouslySetInnerHTML={{__html:subscribe}}></div>
                         <ul className="Footer-social-networks layout-container" role="navigation">
+                            <li><a href="https://www.linkedin.com/company/11306987/" target="_blank">{this.props.lang.Linkedin || 'Linkedin'}</a></li>
                             <li><a href="https://www.facebook.com/scitechby/" target="_blank">Facebook</a></li>
-                            <li><a href="https://vk.com/scitechub" target="_blank">{this.props.lang.VK || 'VK'}</a></li>
                             <li><a href="https://www.youtube.com/channel/UClF9SlczBDDEbB9JxKCVaBw" target="_blank">YouTube</a></li>
                             <li><a href="https://t.me/joinchat/BoOWGEN1HrzaFkbzH0bzXg" target="_blank">Telegram</a></li>
-                            <li className="email"><a href="mailto:sciencehitby@gmail.com">sciencehitby@gmail.com</a></li>
+                            <li className="email"><a href="mailto:sciencehitby@gmail.com">scitechubio@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
                 <div className="Footer-copyright-information">
-                    &copy; 	&#171;СайТех&#187; 2017
+                    &copy; 	&#171;SciTecHub&#187; 2017
                 </div>
             </div>
         </footer>
