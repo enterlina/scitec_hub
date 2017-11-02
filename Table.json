@@ -1,0 +1,170 @@
+{
+    "key" : "TABLE_SCIENTIST",
+    "lang" : "ru",
+    "value" : "Ученый"
+}
+{
+    "key" : "TABLE_SCIENTIST",
+    "lang" : "en",
+    "value" : "Scientist"
+}
+{
+    "key" : "TABLE_SPECIALIZATION",
+    "lang" : "ru",
+    "value" : "Специализация"
+}
+{
+    "key" : "TABLE_SPECIALIZATION",
+    "lang" : "en",
+    "value" : "Specialization"
+}
+{
+    "key" : "TABLE_SPHERE",
+    "lang" : "ru",
+    "value" : "Сфера"
+}
+{
+    "key" : "TABLE_SPHERE",
+    "lang" : "en",
+    "value" : "Scientific field"
+}
+{
+    "key" : "TABLE_PUBLICATIONS_AND_PATENTS",
+    "lang" : "ru",
+    "value" : "Публикации/Патенты"
+}
+{
+    "key" : "TABLE_PUBLICATIONS_AND_PATENTS",
+    "lang" : "en",
+    "value" : "Publications/Patents"
+}
+{
+    "key" : "TABLE_PROJECTS",
+    "lang" : "ru",
+    "value" : "Проекты"
+}
+{
+    "key" : "TABLE_PROJECTS",
+    "lang" : "en",
+    "value" : "Projects"
+}
+{
+    "key" : "TABLE_CONTACT",
+    "lang" : "ru",
+    "value" : "Контакт"
+}
+{
+    "key" : "TABLE_CONTACT",
+    "lang" : "en",
+    "value" : "Contact"
+}
+{
+    "key" : "TABLE_COMPANY",
+    "lang" : "ru",
+    "value" : "Компания"
+}
+{
+    "key" : "TABLE_COMPANY",
+    "lang" : "en",
+    "value" : "Company"
+}
+{
+    "key" : "TABLE_VACANCIES",
+    "lang" : "ru",
+    "value" : "Вакансии"
+}
+{
+    "key" : "TABLE_VACANCIES",
+    "lang" : "en",
+    "value" : "Jobs"
+}
+{
+    "key" : "TABLE_NAME_AND_NAMING",
+    "lang" : "ru",
+    "value" : "Имя/Название"
+}
+{
+    "key" : "TABLE_NAME_AND_NAMING",
+    "lang" : "en",
+    "value" : "Name"
+}
+{
+    "key" : "TABLE_TYPE",
+    "lang" : "ru",
+    "value" : "Тип"
+}
+{
+    "key" : "TABLE_TYPE",
+    "lang" : "en",
+    "value" : "Type"
+}
+{
+    "key" : "TABLE_WORKS_AND_PUBLICATIONS",
+    "lang" : "ru",
+    "value" : "Работы/Публикации"
+}
+{
+    "key" : "TABLE_WORKS_AND_PUBLICATIONS",
+    "lang" : "en",
+    "value" : "Studies/Publications"
+}
+{
+    "key" : "TABLE_NAMING",
+    "lang" : "ru",
+    "value" : "Название"
+}
+{
+    "key" : "TABLE_NAMING",
+    "lang" : "en",
+    "value" : "Title"
+}
+{
+    "key" : "TABLE_AUTHOR",
+    "lang" : "ru",
+    "value" : "Автор"
+}
+{
+    "key" : "TABLE_AUTHOR",
+    "lang" : "en",
+    "value" : "Author"
+}
+{
+    "key" : "TABLE_ACCELERATORS",
+    "lang" : "ru",
+    "value" : "Акселераторы"
+}
+{
+    "key" : "TABLE_ACCELERATORS",
+    "lang" : "en",
+    "value" : "Accelerators"
+}
+{
+    "key" : "TABLE_FUND",
+    "lang" : "ru",
+    "value" : "Фонд"
+}
+{
+    "key" : "TABLE_FUND",
+    "lang" : "en",
+    "value" : "Fund"
+}
+{
+    "key" : "TABLE_REVARD",
+    "lang" : "ru",
+    "value" : "Награда"
+}
+{
+    "key" : "TABLE_REVARD",
+    "lang" : "en",
+    "value" : "Reward"
+}
+{
+    "key" : "TABLE_DEADLINE",
+    "lang" : "ru",
+    "value" : "Дедлайн"
+}
+{
+    "key" : "TABLE_DEADLINE",
+    "lang" : "en",
+    "value" : "Deadline"
+}
