@@ -100,9 +100,9 @@ class ResearchMain extends React.Component {
               <div className="layout-container layout-container--white noPadding">
               <ul className="SortableFields">
                 <li><a href="javascript:void(0);" className={filterPeople == ""  ? 'active-link' : ''} onClick={this.sort.bind(this, '')}>STARTUPs</a></li>
-                <li><a href="javascript:void(0);" className={filterPeople == 'Business'  ? 'active-link' : ''} onClick={this.sort.bind(this, 'Business')}>КОМПАНИИ</a></li>
-                <li><a href="javascript:void(0);" className={filterPeople == 'Accelerator'  ? 'active-link' : ''} onClick={this.sort.bind(this, 'Accelerator')}>АКСЕЛЕРАТОРЫ</a></li>
-                <li><a href="javascript:void(0);" className={filterPeople == 'Fund'  ? 'active-link' : ''} onClick={this.sort.bind(this, 'Fund')}>ФОНДЫ</a></li>
+                <li><a href="javascript:void(0);" className={filterPeople == 'Business'  ? 'active-link' : ''} onClick={this.sort.bind(this, 'Business')}>{this.props.lang.TABLE_COMPANY}</a></li>
+                <li><a href="javascript:void(0);" className={filterPeople == 'Accelerator'  ? 'active-link' : ''} onClick={this.sort.bind(this, 'Accelerator')}>{this.props.lang.TABLE_ACCELERATORS}</a></li>
+                <li><a href="javascript:void(0);" className={filterPeople == 'Fund'  ? 'active-link' : ''} onClick={this.sort.bind(this, 'Fund')}>{this.props.lang.TABLE_FUND}</a></li>
               </ul>
 
                 {cards}
