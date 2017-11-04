@@ -1,437 +1,457 @@
 {
-
-    "name" : "Scifields",
+    "name" : "sphere",
     "options" : [ 
         {
-            "name" : "PHYS_MATH",
+            "name" : "All",
             "options" : [ 
                 {
-                    "name" : "FUNCT_ANALYSIS",
+                    "name" : "PHYS_MATH",
                     "options" : [ 
-                        "DIF_EQUATIONS", 
-                        "MATH_PHYSICS", 
-                        "GEOM_TOPOLOGY", 
-                        "MATH_STATISTICS", 
-                        "MATH_LOGIC", 
-                        "COMP_MATH", 
-                        "DISCR_MATH"
+                        {
+                            "name" : "MATH",
+                            "options" : [ 
+                                "FUNCT_ANALYSIS", 
+                                "DIF_EQUATIONS", 
+                                "MATH_PHYSICS", 
+                                "GEOM_TOPOLOGY", 
+                                "MATH_STATISTICS", 
+                                "MATH_LOGIC", 
+                                "COMP_MATH", 
+                                "DISCR_MATH"
+                            ]
+                        }, 
+                        {
+                            "name" : "MECHANICS",
+                            "options" : [ 
+                                "THEOR_MECH", 
+                                "MECH_DEFSOLID", 
+                                "MECH_LIQUID", 
+                                "DYNAMICS", 
+                                "BIOMECHANICS"
+                            ]
+                        }, 
+                        {
+                            "name" : "ASTRONOMY",
+                            "options" : [ 
+                                "ASTROMETRY", 
+                                "ASTROPHYSICS", 
+                                "PHYS_SUN", 
+                                "PLAN_RESEARCH"
+                            ]
+                        }, 
+                        {
+                            "name" : "PHYSICS",
+                            "options" : [ 
+                                "METH_EXPPHYSICS", 
+                                "THEOR_PHYSICS", 
+                                "RADIOPHYSICS", 
+                                "PHYS_ELECTRONICS", 
+                                "OPTICS", 
+                                "ACOUSTICS", 
+                                "COND_PHYSICS", 
+                                "PLASMA_PHYSICS", 
+                                "TEMP_PHYSICS", 
+                                "PHYS_SEMICONDUCTORS", 
+                                "PHYS_MAGNETIC", 
+                                "ELECTROPHYSICS", 
+                                "THERMOPHYSICS", 
+                                "PHYS_NANOSTRUCTURES", 
+                                "PHYSICS_ATOMIC", 
+                                "CHEM_PHYSICS", 
+                                "CRYSTALLOGRAPHY", 
+                                "PHYS_CHARGED", 
+                                "LASER_PHYS", 
+                                "HIGH_PHYS"
+                            ]
+                        }
                     ]
                 }, 
                 {
-                    "name" : "THEOR_MECH",
+                    "name" : "CHEM_SCI",
                     "options" : [ 
-                        "MECH_DEFSOLID", 
-                        "MECH_LIQUID", 
-                        "DYNAMICS", 
-                        "BIOMECHANICS"
+                        "INORGANIC_CHEM", 
+                        "ANALYTICAL_CHEM", 
+                        "ORGANIC_CHEM", 
+                        "PHYSICAL_CHEM", 
+                        "ELECTRO_CHEM", 
+                        "ORGANOELEM_CHEM", 
+                        "HIGHENERGY_CHEM", 
+                        "BIOORGANIC_CHEM", 
+                        "COLLOID_CHEM", 
+                        "BIONEORGANIC_CHEM", 
+                        "PETRO_CHEM", 
+                        "RADIO_CHEM", 
+                        "KINETICS_CATAL", 
+                        "MEDICAL_CHEM", 
+                        "MATHQUANTUM_CHEM", 
+                        "SOLID STATE CHEMISTRY"
                     ]
                 }, 
                 {
-                    "name" : "ASTROMETRY",
+                    "name" : "BIO_SCI",
                     "options" : [ 
-                        "ASTROPHYSICS", 
-                        "PHYS_SUN", 
-                        "PLAN_RESEARCH"
+                        "RADIOBIOLOGY", 
+                        "BIOPHYSICS", 
+                        "MOLEC_BIO", 
+                        "BIOCHEMISTRY", 
+                        "PHYS_BIO", 
+                        "BIO_TECH", 
+                        "MOL_GEN", 
+                        "BIOENGIN", 
+                        "MATH_BIOLOGY", 
+                        "BOTANY", 
+                        "VIROLOGY", 
+                        "MICROBIOLOGY", 
+                        "ZOOLOGY", 
+                        "ENTOMOLOGY", 
+                        "ICHTHYOLOGY", 
+                        "GENETICS", 
+                        "ECOLOGY_INDUSTRY", 
+                        "BIOGEOCHEMISTRY", 
+                        "HYDROBIOLOGY", 
+                        "PARASITOLOGY", 
+                        "MYCOLOGY", 
+                        "IMMUNOLOGY", 
+                        "CELL_BIOLOGY", 
+                        "DEV_BIOLOGY", 
+                        "NEUROBIOLOGY"
                     ]
                 }, 
                 {
-                    "name" : "METH_EXPPHYSICS",
+                    "name" : "TECH_SCIENCE",
                     "options" : [ 
-                        "THEOR_PHYSICS", 
-                        "RADIOPHYSICS", 
-                        "PHYS_ELECTRONICS", 
-                        "OPTICS", 
-                        "ACOUSTICS", 
-                        "COND_PHYSICS", 
-                        "PLASMA_PHYSICS", 
-                        "TEMP_PHYSICS", 
-                        "PHYS_SEMICONDUCTORS", 
-                        "PHYS_MAGNETIC", 
-                        "ELECTROPHYSICS", 
-                        "THERMOPHYSICS", 
-                        "PHYS_NANOSTRUCTURES", 
-                        "PHYSICS_ATOMIC", 
-                        "CHEM_PHYSICS", 
-                        "CRYSTALLOGRAPHY", 
-                        "PHYS_CHARGED", 
-                        "LASER_PHYS", 
-                        "HIGH_PHYS"
-                    ]
-                }
-            ]
-        }, 
-        {
-            "name" : "CHEM_SCI",
-            "options" : [ 
-                "INORGANIC_CHEM", 
-                "ANALYTICAL_CHEM", 
-                "ORGANIC_CHEM", 
-                "PHYSICAL_CHEM", 
-                "ELECTRO_CHEM", 
-                "ORGANOELEM_CHEM", 
-                "HIGHENERGY_CHEM", 
-                "BIOORGANIC_CHEM", 
-                "COLLOID_CHEM", 
-                "BIONEORGANIC_CHEM", 
-                "PETRO_CHEM", 
-                "RADIO_CHEM", 
-                "KINETICS_CATAL", 
-                "MEDICAL_CHEM", 
-                "MATHQUANTUM_CHEM", 
-                "SOLID STATE CHEMISTRY"
-            ]
-        }, 
-        {
-            "name" : "BIO_SCI",
-            "options" : [ 
-                "RADIOBIOLOGY", 
-                "BIOPHYSICS", 
-                "MOLEC_BIO", 
-                "BIOCHEMISTRY", 
-                "PHYS_BIO", 
-                "BIO_TECH", 
-                "MOL_GEN", 
-                "BIOENGIN", 
-                "MATH_BIOLOGY", 
-                "BOTANY", 
-                "VIROLOGY", 
-                "MICROBIOLOGY", 
-                "ZOOLOGY", 
-                "ENTOMOLOGY", 
-                "ICHTHYOLOGY", 
-                "GENETICS", 
-                "ECOLOGY_INDUSTRY", 
-                "BIOGEOCHEMISTRY", 
-                "HYDROBIOLOGY",
-                "PARASITOLOGY", 
-                "MYCOLOGY", 
-                "IMMUNOLOGY", 
-                "CELL_BIOLOGY", 
-                "DEV_BIOLOGY", 
-                "NEUROBIOLOGY"
-            ]
-        }, 
-        {
-            "name" : "TECH_SCIENCE",
-            "options" : [ 
-                "ENGIN_GEOMETRY",
-                {
-                    "name" : "MACHINE_SCIENCE",
-                    "options" : [ 
-                        "FRICTION_MACH", 
-                        "ROBOTS", 
-                        "TECHNOLOGY_MECH", 
-                        "TECHN_ENGIN", 
-                        "MACH_PROCESPRESSURE", 
-                        "WELDING",
-                        "DIAGNOS_MECH",
-                        "MACH_AGGREGATES",
-                        "THEOR_MECHMACH",
-                        "ORG_PROD",
-                        "STANDAR_MANAG"
+                        "ENGIN_GEOMETRY", 
+                        {
+                            "name" : "MECHAN_ENGIN",
+                            "options" : [ 
+                                "MACHINE_SCIENCE",
+                                "FRICTION_MACH", 
+                                "ROBOTS", 
+                                "TECHNOLOGY_MECH", 
+                                "TECHN_ENGIN", 
+                                "MACH_PROCESPRESSURE", 
+                                "WELDING", 
+                                "DIAGNOS_MECH", 
+                                "MACH_AGGREGATES", 
+                                "THEOR_MECHMACH", 
+                                "ORG_PROD", 
+                                "STANDAR_MANAG"
+                            ]
+                        }, 
+                        {
+                            "name" : "POWER_MET",
+                            "options" : [ 
+                                "THERM_MOTORS",
+                                "MACHINES_DEVICES", 
+                                "VACUUM_COMPRES", 
+                                "ATOMIC_REACT", 
+                                "TURBOMACHINES", 
+                                "HYDR_MACHINES", 
+                                "ROAD_BUILDING"
+                            ]
+                        }, 
+                        {
+                            "name" : "AEROSPACE",
+                            "options" : [ 
+                                "AERODYNAMICS",
+                                "DESIGN_CONSTR", 
+                                "STRENGTH_AIRCRAFT", 
+                                "ELECTRIC_ROCKET", 
+                                "GROUND_COMPLEXES", 
+                                "CONTROL_AIRCRAFT", 
+                                "BALLISTICS_CONTROL", 
+                                "INNOVAT_TECHNO"
+                            ]
+                        }, 
+                        {
+                            "name" : "ELECTRICAL_ENGIN",
+                            "options" : [ 
+                                "ELECTROMECHANICS",
+                                "ELECTROTECH_MATERIALS", 
+                                "ELECTROTECHNI_SYSTEMS", 
+                                "THEOR_ELECTRICAL", 
+                                "LIGHTING_TECH", 
+                                "ELECTRO_TECH", 
+                                "POWER_ELECTRO"
+                            ]
+                        }, 
+                        {
+                            "name" : "INSTRUMENT_MAKING",
+                            "options" : [ 
+                                "INSTRUMENTS_MEASUR",
+                                "DEVICES_NAVIG", 
+                                "ACOUSTIC_DEV", 
+                                "OPTICAL_DEV", 
+                                "RADIO_MEASUR", 
+                                "INSTR_RADIATION", 
+                                "INSTR_MONITORING", 
+                                "TECHNOLOGY_INSTR", 
+                                "METROLOGY", 
+                                "INF_MEASURINGSYS", 
+                                "DEV_SYSTMEDICAL", 
+                                "INST_IMAGES"
+                            ]
+                        }, 
+                        {
+                            "name" : "RADIO_ENGIN_COM",
+                            "options" : [ 
+                                "RADIO_ENGINEER",
+                                "ANTENNAS", 
+                                "TELECOM_DEV", 
+                                "RADAR", 
+                                "SYST_ANALYSIS", 
+                                "ELEMENT_COMP", 
+                                "AUTOM_ CONTROL", 
+                                "MANAG_SOCIAL", 
+                                "MATH_SOFT", 
+                                "AUTOMAT_SYSTDES", 
+                                "COMP_MACHINES", 
+                                "THEOR_BASES", 
+                                "MATH_MODELING", 
+                                "METH_INFPROTECTION", 
+                                "QUANTUM_INF"
+                            ]
+                        }, 
+                        {
+                            "name" : "INFORMATICS_COMP_SCI",
+                            "options" : [ 
+                                "SYST_ANALYSIS",
+                                "ELEMENT_COMP", 
+                                "AUTOM_ CONTROL", 
+                                "MANAG_SOCIAL", 
+                                "MATH_SOFT", 
+                                "AUTOMAT_SYSTDES", 
+                                "COMP_MACHINES", 
+                                "THEOR_BASES", 
+                                "MATH_MODELING", 
+                                "QUANTUM_INF"
+                            ]
+                        }, 
+                        {
+                            "name" : "POWER_ENGIN", 
+                            "options" : [ 
+                                "POWER_SYST",
+                                "POWER_PLANTS", 
+                                "NUCLEAR_PLANTS", 
+                                "INDUSTR_HEAT", 
+                                "POWER_PLANTS", 
+                                "TECH_STRESSES", 
+                                "THERMAL_PLANTS"
+                            ]
+                        }, 
+                        {
+                            "name" : "METALLURGY_MAT",
+                            "options" : [ 
+                                "METALLURGY_TREAT",
+                                "METALLURGY_COMPOSMAT", 
+                                "METALLURGY_TECHN", 
+                                "NANOTECH", 
+                                "MAT_SCIENCE"
+                            ]
+                        }, 
+                        {
+                            "name" : "TECH_INORGANIC",
+                            "options" : [ 
+                                "TECH_RARE", 
+                                "TECH_ELECTROCHEM", 
+                                "TECH_ORGSUBS", 
+                                "TECH_POLYMER", 
+                                "CHEMTECHN_FUEL", 
+                                "CHEM_TECH", 
+                                "TECH_SILICATE", 
+                                "MEMBRANE_TECH"
+                            ]
+                        }, 
+                        {
+                            "name" : "FOOD_PROD_TECH",
+                            "options" : [ 
+                                "TECHN_CEREALS",
+                                "TECH_MEAT", 
+                                "TECH_SUGAR", 
+                                "TECH_FATS", 
+                                "BIOTECH_FOOD", 
+                                "PROCES_FOODPROD"
+                            ]
+                        }, 
+                        {
+                            "name" : "PROCESSES_MACH_AGRO",
+                            "options" : [ 
+                                "TECH_MECHAGRICULTURE",
+                                "ELECTROTECHNOLOGIES", 
+                                "TECH_MAINAGRICULTURE"
+                            ]
+                        }, 
+                        {
+                            "name" : "TECHNOLOGY_MACHINERY",
+                            "options" : [ 
+                                "TECH_FORESTRY",
+                                "TECH_EQUIPMENTCHEM", 
+                                "WOOD_SCIENCE"
+                            ]
+                        }, 
+                        {
+                            "name" : "TRANSPORT",
+                            "options" : [ 
+                                "RAILWAY", 
+                                "TRAIN_ELECTRIF", 
+                                "TRANS_MANAG", 
+                                "OPERATION_MOTORTRANS", 
+                                "NAVIG_AIRTRAF", 
+                                "OPERATION_AIRTRANS"
+                            ]
+                        }, 
+                        {
+                            "name" : "CONSTR_ARCHIT",
+                            "options" : [ 
+                                 "HEAT_SUPPLY",
+                                "WATER_SUPPLY", 
+                                "BUILD_MAT", 
+                                "HYDRAULIC_ENGIN", 
+                                "TECH_ORG"
+                            ]
+                        }, 
+                        "INFO_S", 
+                        {
+                            "name" : "NUCLEAR_SAFETY",
+                            "options" : [ 
+                                "CHEM_SAFETY"
+                            ]
+                        }, 
+                        {
+                            "name" : "SOLID_ELECTR",
+                            "options" : [ 
+                                "VACUUM_ELECTR", 
+                                "QUANTUM_ELECTR", 
+                                "TECH_PROD", 
+                                "VACUUM_PLASMA", 
+                                "QUANTUM_ELECTR", 
+                                "TECH_SEMICONDUCTORS"
+                            ]
+                        }
                     ]
                 }, 
                 {
-                    "name" : "THERM_MOTORS",
+                    "name" : "AGRICULT_SCI",
                     "options" : [ 
-                        "MACHINES_DEVICES",
-                        "VACUUM_COMPRES",
-                        "ATOMIC_REACT",
-                        "TURBOMACHINES",
-                        "HYDR_MACHINES",
-                        "ROAD_BUILDING"
+                        {
+                            "name" : "LAND_RECLAM",
+                            "options" : [ 
+                                "AGROPHYSICS", 
+                                "AGROCHEMISTRY", 
+                                "SELEC_SEEDFARMING", 
+                                "MED_OILBEARING", 
+                                "PLANT_PROTECT"
+                            ]
+                        }
+                    ],
+                    "options" : [ 
+                        {
+                            "name" : "DIAGNOS_ANIMALS",
+                            "options" : [ 
+                                "VETERINARY_MICROB", 
+                                "VETERINARY_PHARMA", 
+                                "VET_SURGERY", 
+                                "VET_SANITATION", 
+                                "VET_BIOREPR", 
+                                "BREEDING_ANIMALS", 
+                                "FEED_PROD", 
+                                "HUNTING", 
+                                "ZOO_TECH"
+                            ]
+                        }
+                    ],
+                    "options" : [ 
+                        {
+                            "name" : "FOREST_CULT",
+                            "options" : [ 
+                                "FOREST_MANAGEM", 
+                                "AGROFORESTRY", 
+                                "FISHERIES"
+                            ]
+                        }
                     ]
                 }, 
                 {
-                    "name" : "AERODYNAMICS",
+                    "name" : "MED_SCI",
                     "options" : [ 
-                        "DESIGN_CONSTR", 
-                        "STRENGTH_AIRCRAFT", 
-                        "ELECTRIC_ROCKET", 
-                        "GROUND_COMPLEXES", 
-                        "CONTROL_AIRCRAFT", 
-                        "BALLISTICS_CONTROL",
-                        "INNOVAT_TECHNO"
+                        "MED_SCI", 
+                        "OBST_GYNECOLOGY", 
+                        "ENDOCRINOLOGY", 
+                        "DIS_EAR", 
+                        "INT_ILL", 
+                        "CARDIOLOGY", 
+                        "PSYCHIATRY", 
+                        "EYE_DIS", 
+                        "PEDIATRICS", 
+                        "INFECT_DIS", 
+                        "SKIN_DIS", 
+                        "NERV_DIS", 
+                        "ONCOLOGY", 
+                        "RADIAT_DIAGN", 
+                        "STOMATOLOGY", 
+                        "TRAUMATOLOGY", 
+                        "SURGERY", 
+                        "NEUROSURGERY", 
+                        "PEDIATRIC_SURG", 
+                        "ANAESTHESIOLOGY", 
+                        "HEMATOLOGY_TRANS", 
+                        "RHEUMATOLOGY", 
+                        "TRANSPLANTOLOGY", 
+                        "PULMONOLOGY", 
+                        "CARDIO_SURG", 
+                        "NARCOLOGY", 
+                        "GASTROENTEROLOGY", 
+                        "NEPHROLOGY", 
+                        "GERONT_GERIATR", 
+                        "PLASTIC_SURG", 
+                        "HYGIENE", 
+                        "EPIDEMIOLOGY", 
+                        "PUBLIC_HEALTH", 
+                        "OCCUP_MED", 
+                        "SOCIOL_MED", 
+                        "MEDSOC_REHABILITATION", 
+                        "HUMAN_ANATOMY", 
+                        "PATHOLOG_ANATOMY", 
+                        "PATHOLOG_PHYS", 
+                        "TOXICOLOGY", 
+                        "PHARMACOLOGY", 
+                        "CHEMOTHERAPY", 
+                        "AVIATION_MED", 
+                        "CLINIC_IMMUNOLOGY", 
+                        "CLINIC_DIAGNOSTICS", 
+                        "RESTORATIVE_MED", 
+                        "TECHN_OBTAINMED", 
+                        "PHARMA_CHEM", 
+                        "ORG_PHARMA"
                     ]
-                },
-                 {
-                    "name" : "ELECTROMECHANICS",
+                }, 
+                {
+                    "name" : "E_SCI",
                     "options" : [ 
-                        "ELECTROTECH_MATERIALS", 
-                        "ELECTROTECHNI_SYSTEMS", 
-                        "THEOR_ELECTRICAL", 
-                        "LIGHTING_TECH", 
-                        "ELECTRO_TECH", 
-                        "POWER_ELECTRO"
+                        "EARTH_SCI", 
+                        "GEOTECTONICS", 
+                        "PETROLOGY_VOLCAN", 
+                        "MINERALOGY_CRYSTAL", 
+                        "HYDROGEOLOGY", 
+                        "ENGIN_GEO", 
+                        "ENRICH_MINERALS", 
+                        "GEOTECHNOLOGY", 
+                        "PHYS_GEOGRAPHY", 
+                        "GEOMORPHOLOGY", 
+                        "LAND_MANAGEM", 
+                        "HYDROLOGY_LAND", 
+                        "OCEANOLOGY", 
+                        "ATMOSPHERE_PHYS", 
+                        "METEOROLOGY", 
+                        "GLACIOLOGY_EARTH", 
+                        "GEODESY", 
+                        "CARTOGRAPHY", 
+                        "AEROSPACE _STUD", 
+                        "GEOINFORMATICS", 
+                        "GEOECOLOGY"
                     ]
-                },
-                {
-                    "name" : "INSTRUMENTS_MEASUR",
-                    "options" : [ 
-                        "DEVICES_NAVIG", 
-                        "ACOUSTIC_DEV", 
-                        "OPTICAL_DEV", 
-                        "RADIO_MEASUR", 
-                        "INSTR_RADIATION", 
-                        "INSTR_MONITORING",
-                        "TECHNOLOGY_INSTR",
-                        "METROLOGY",
-                        "INF_MEASURINGSYS",
-                        "DEV_SYSTMEDICAL",
-                        "INST_IMAGES"
-                
-                    ]
-                },
-                {
-                    "name" : "RADIO_ENGINEER",
-                    "options" : [ 
-                        "ANTENNAS", 
-                        "TELECOM_DEV", 
-                        "RADAR", 
-                        "SYST_ANALYSIS", 
-                        "ELEMENT_COMP",
-                        "AUTOM_ CONTROL", 
-                        "MANAG_SOCIAL", 
-                        "MATH_SOFT", 
-                        "AUTOMAT_SYSTDES",
-                        "COMP_MACHINES",
-                        "THEOR_BASES",
-                        "MATH_MODELING",
-                        "METH_INFPROTECTION",
-                        "QUANTUM_INF"
-                    ]
-                },
-                {
-                    "name" : "SYST_ANALYSIS",
-                    "options" : [ 
-                        "ELEMENT_COMP",
-                        "AUTOM_ CONTROL",
-                        "MANAG_SOCIAL",
-                        "MATH_SOFT",
-                        "AUTOMAT_SYSTDES",
-                        "COMP_MACHINES",
-                        "THEOR_BASES",
-                        "MATH_MODELING",
-                        "QUANTUM_INF"
-                    ]
-                },
-                {
-                    "name" : "POWER_SYST",
-                    "options" : [ 
-                        "POWER_PLANTS", 
-                        "NUCLEAR_PLANTS", 
-                        "INDUSTR_HEAT", 
-                        "POWER_PLANTS", 
-                        "TECH_STRESSES",
-                        "THERMAL_PLANTS" 
-                    ]
-                },
-                {
-                    "name" : "METALLURGY_TREAT",
-                    "options" : [ 
-                        "METALLURGY_COMPOSMAT", 
-                        "METALLURGY_TECHN", 
-                        "NANOTECH", 
-                        "MAT_SCIENCE"
-                    ]
-                },
-                   {
-                    "name" : "TECH_INORGANIC",
-                    "options" : [ 
-                        "TECH_RARE", 
-                        "TECH_ELECTROCHEM", 
-                        "TECH_ORGSUBS", 
-                        "TECH_POLYMER",
-                        "CHEMTECHN_FUEL", 
-                        "CHEM_TECH", 
-                        "TECH_SILICATE", 
-                        "MEMBRANE_TECH"
-                    ]
-                },
-                {
-                    "name" : "TECHN_CEREALS",
-                    "options" : [ 
-                        "TECH_MEAT", 
-                        "TECH_SUGAR", 
-                        "TECH_FATS", 
-                        "BIOTECH_FOOD", 
-                        "PROCES_FOODPROD"
-                    ]
-                },
-                {
-                    "name" : "TECH_MECHAGRICULTURE",
-                    "options" : [  
-                        "ELECTROTECHNOLOGIES", 
-                        "TECH_MAINAGRICULTURE"
-                    ]
-                },
-                   {
-                    "name" : "TECH_FORESTRY",
-                    "options" : [
-                        "TECH_EQUIPMENTCHEM", 
-                        "WOOD_SCIENCE"
-                    ]
-                },
-                   {
-                    "name" : "TRANSPORT",
-                    "options" : [
-                        "RAILWAY", 
-                        "TRAIN_ELECTRIF", 
-                        "TRANS_MANAG", 
-                        "OPERATION_MOTORTRANS",
-                        "NAVIG_AIRTRAF", 
-                        "OPERATION_AIRTRANS"
-                    ]
-                },   {
-                    "name" : "HEAT_SUPPLY",
-                    "options" : [
-                        "WATER_SUPPLY", 
-                        "BUILD_MAT", 
-                        "HYDRAULIC_ENGIN", 
-                        "TECH_ORG"
-                    ]
-                },
-                "INFO_S",
-                   {
-                    "name" : "NUCLEAR_SAFETY",
-                    "options" : [ 
-                        "CHEM_SAFETY"
-                    ]
-                },
-                {
-                    "name" : "SOLID_ELECTR",
-                    "options" : [
-                        "VACUUM_ELECTR", 
-                        "QUANTUM_ELECTR", 
-                        "TECH_PROD", 
-                        "VACUUM_PLASMA",
-                        "QUANTUM_ELECTR", 
-                        "TECH_SEMICONDUCTORS"
-                    ]
-                }
-
-            ]
-        }, 
-         {
-            "name" : "AGRICULT_SCI",
-            "options" : [
-                {
-                    "name" : "LAND_RECLAM",
-                    "options" : [  
-                        "AGROPHYSICS", 
-                        "AGROCHEMISTRY", 
-                        "SELEC_SEEDFARMING", 
-                        "MED_OILBEARING", 
-                        "PLANT_PROTECT"
-                        ]
-                }
-            ],
-            "options" : [
-                {
-            "name" : "DIAGNOS_ANIMALS",
-            "options" : [  
-                "VETERINARY_MICROB",
-                "VETERINARY_PHARMA",
-                "VET_SURGERY",
-                "VET_SANITATION",
-                "VET_BIOREPR",
-                "BREEDING_ANIMALS",
-                "FEED_PROD",
-                "HUNTING",
-                "ZOO_TECH"
-                ]
-                }
-            ],
-            "options" : [
-                {
-            "name" : "FOREST_CULT",
-            "options" : [ 
-                "FOREST_MANAGEM",
-                "AGROFORESTRY",
-                "FISHERIES"
-                        ]
                 }
             ]
-         },
-        {
-        "name" : "MED_SCI",
-            "options" : [ 
-            "MED_SCI",
-            "OBST_GYNECOLOGY", 
-            "ENDOCRINOLOGY",
-            "DIS_EAR", 
-            "INT_ILL",
-            "CARDIOLOGY",
-            "PSYCHIATRY",
-            "EYE_DIS",
-            "PEDIATRICS",
-            "INFECT_DIS",
-            "SKIN_DIS",
-            "NERV_DIS",
-            "ONCOLOGY",
-            "RADIAT_DIAGN",
-            "STOMATOLOGY",
-            "TRAUMATOLOGY",
-            "SURGERY",
-            "NEUROSURGERY",
-            "PEDIATRIC_SURG",
-            "ANAESTHESIOLOGY",
-            "HEMATOLOGY_TRANS",
-            "RHEUMATOLOGY",
-            "TRANSPLANTOLOGY",
-            "PULMONOLOGY",
-            "CARDIO_SURG",
-            "NARCOLOGY",
-            "GASTROENTEROLOGY",
-            "NEPHROLOGY",
-            "GERONT_GERIATR",
-            "PLASTIC_SURG",
-            "HYGIENE",
-            "EPIDEMIOLOGY",
-            "PUBLIC_HEALTH",
-            "OCCUP_MED",
-            "SOCIOL_MED",
-            "MEDSOC_REHABILITATION",
-            "HUMAN_ANATOMY",
-            "PATHOLOG_ANATOMY",
-            "PATHOLOG_PHYS",
-            "TOXICOLOGY",
-            "PHARMACOLOGY",
-            "CHEMOTHERAPY",
-            "AVIATION_MED",
-            "CLINIC_IMMUNOLOGY",
-            "CLINIC_DIAGNOSTICS",
-            "RESTORATIVE_MED",
-            "TECHN_OBTAINMED",
-            "PHARMA_CHEM",
-            "ORG_PHARMA"
-             ]
-        },
-        {
-            "name" : "E_SCI",
-            "options" : [ 
-            "EARTH_SCI", 
-            "GEOTECTONICS",
-            "PETROLOGY_VOLCAN",
-            "MINERALOGY_CRYSTAL",
-            "HYDROGEOLOGY",
-            "ENGIN_GEO",
-            "ENRICH_MINERALS",
-            "GEOTECHNOLOGY",
-            "PHYS_GEOGRAPHY",
-            "GEOMORPHOLOGY",
-            "LAND_MANAGEM",
-            "HYDROLOGY_LAND",
-            "OCEANOLOGY",
-            "ATMOSPHERE_PHYS",
-            "METEOROLOGY",
-            "GLACIOLOGY_EARTH",
-            "GEODESY",
-            "CARTOGRAPHY",
-            "AEROSPACE _STUD",
-            "GEOINFORMATICS",
-            "GEOECOLOGY"
-             ]
         }
     ]
 }
