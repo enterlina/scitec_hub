@@ -23,7 +23,8 @@
   }
 
   &--item.Table--headingItem {
-    padding: 4px 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
     background: #f7f7f7;
     width: 100%;
     color: #818791;
@@ -32,7 +33,7 @@
   &--item {
     background: #fff;
     width: 100%;
-    padding: 16px;
+    padding: 15px;
     flex: 1 1 10%;
 
     ul {
@@ -47,10 +48,6 @@
     &:first-child {
       padding-left: 30px;
       flex-grow: 4;
-    }
-
-    &:first-child:not(.Table--headingItem) {
-      padding-right: 30px;
     }
 
     &:last-child {
