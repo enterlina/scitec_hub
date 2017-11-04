@@ -60,6 +60,10 @@ class Research extends React.Component {
                   })}
                   </div>
                 </div>
+                <div  className={"InfoPage--term" + (page.country ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.COUNTRY || 'Country'}:</div>                  
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:this.props.lang[page.country]}}></div>
+                </div>
                 { page.video ? 
                 (<div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.VIDEO || 'video'}:</div>                  

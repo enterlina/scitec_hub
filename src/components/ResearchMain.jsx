@@ -46,7 +46,7 @@ class ResearchMain extends React.PureComponent {
       }
       if(cardData.length !=0) {
         let tableData = {
-          fields: [this.props.lang.TABLE_NAMING, this.props.lang.TABLE_AUTHOR, this.props.lang.TABLE_SPHERE],
+          fields: [this.props.lang.TABLE_NAMING, this.props.lang.TABLE_AUTHOR, this.props.lang.TABLE_SPHERE, this.props.lang.TABLE_COUNTRY],
           items: []
         };
 
@@ -57,7 +57,7 @@ class ResearchMain extends React.PureComponent {
           
           let cardLink = <Link to={'/' + card.type + '/' + card._id}>{langArrayHandler(card.name, this.props.defaultLang)}</Link>;
 
-          return [cardLink, authors, card.sphere.map((item)=> this.props.lang[item]).join(', ')];
+          return [cardLink, authors, card.sphere.map((item)=> this.props.lang[item]).join(', '), this.props.lang[card.country]];
         });
 
         cards = <Table data={tableData}/>;
