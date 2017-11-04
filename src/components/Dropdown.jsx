@@ -13,6 +13,7 @@ class Dropdown extends React.Component {
 
       this.state = {
         selected: [],
+        allFields: [],
         isOpened: false
       }
     }
@@ -20,23 +21,22 @@ class Dropdown extends React.Component {
       this.props.loadDropdown();
     }
     generateTree(data) {
-      
+      // console.log(data)
         if (data == undefined || data.length == 0) { return false}
         let path = [];
       let expandElement = (element) => {
-        let expanded = [];
         path.push(element.name);
-        element.options.map((item, index)=>{
+        let expanded = element.options.map((item, index)=>{
           if(typeof item == 'string') {
             // <input type="checkbox" name="sphere[]" value={path.join('--') + '--' + item} />
-            expanded.push(<li key={index}><input  onChange={this.handleInputChange.bind(this)} id={item} type="checkbox" name={this.props.name + '--' + item} value={item} /><label htmlFor={item}>{this.props.lang[item] || item}</label></li>)
+            return <li key={index}><input  onChange={this.handleInputChange.bind(this)} id={item} type="checkbox" name={this.props.name + '--' + item} value={item} /><label htmlFor={item}>{this.props.lang[item] || item}</label></li>
           } else if(typeof item == 'object') {
-            expanded.push(expandElement(item))
+            return expandElement(item)
           }
         })
         // <input type="checkbox" name="sphere[]" value={element.name} />
-        return <li>
-          <b>{element.name != this.props.name ? <span><input onChange={this.handleInputChange.bind(this)} type="checkbox" name={this.props.name + '--' + element.name} value={element.name} id={element.name} /><label htmlFor={element.name}>{this.props.lang[element.name] || element.name}</label></span> : ''}</b>
+        return <li className='Dropdown-parent'>
+          <b>{element.name != this.props.name ? <span><input  onChange={this.checkAllFrom.bind(this)} type="checkbox" name={this.props.name + '--' + element.name} value={element.name} id={this.props.name + '--' + element.name} /><label htmlFor={this.props.name + '--' + element.name}>{this.props.lang[element.name] || element.name}</label></span> : ''}</b>
           <ul>{expanded}</ul>
         </li>
       }
@@ -48,6 +48,59 @@ class Dropdown extends React.Component {
       this.setState({
         isOpened: !this.state.isOpened
       });
+
+    }
+    makePlainArray(obj) {
+      if (obj == undefined || obj.length == 0) { return false }
+      let that = this;
+      let resultArr = [];
+      resultArr.push(obj.name)
+      obj.options.forEach((item)=>{
+        if(typeof(item) == 'string') {
+          resultArr.push(item);
+        } else {
+          resultArr = [...resultArr, ...this.makePlainArray(item)]
+        }
+      })
+
+      return resultArr;
+    }
+    executeBranch(data, name) {
+         
+         let resBranch = {};
+         const findInBranch = (obj) => {
+            if(obj.name == name) {
+              resBranch = {...obj};
+              return ;
+            }
+            obj.options.forEach((item) => {
+              if(typeof(item) == 'string') {
+                return;
+              }
+              findInBranch(item)
+            })
+            
+         }
+         findInBranch(data);
+         return resBranch;
+    }
+    checkAllFrom(event) {
+      const filtered = this.props.dropdowns.filter((item)=>{ return item.name == this.props.name});
+      const target = event.target;
+      const isChecked = target.checked ? true : false;
+      // console.log(this.executeBranch(filtered[0], target.value))
+      const inherrited = this.makePlainArray(this.executeBranch(filtered[0], target.value));
+      let selected = [];
+      if(isChecked) {
+        selected = inherrited
+      } 
+      inherrited.forEach((item)=> {
+        document.querySelector('[name="'+this.props.name+'--'+item+'"]').checked = isChecked;
+      })
+      this.setState({
+        selected: selected
+      });
+      this.props.setFilters(this.props.name, selected);
 
     }
     handleInputChange(event) {
@@ -66,12 +119,12 @@ class Dropdown extends React.Component {
       this.setState({
         selected: selected
       });
-      // this.props.setFilters(this.props.name, selected);
-      if(selected.length != 0){
-        this.props.updateCards(this.props.type, this.props.name, selected)
-      } else {
-        this.props.updateByType(this.props.type)
-      }
+      this.props.setFilters(this.props.name, selected);
+      // if(selected.length != 0){
+      //   this.props.updateCards(this.props.type, this.props.name, selected)
+      // } else {
+      //   this.props.updateByType(this.props.type)
+      // }
     }
     // saveItems() {
     //   let form = document.getElementById('dropdownForm');

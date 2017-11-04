@@ -5,6 +5,10 @@
   margin-top: 0;
 }
 
+.DropdownArea {
+  display: flex;
+}
+
 .Dropdown ul {
   margin: 0;
   padding: 0;
@@ -77,7 +81,7 @@
     cursor: pointer;
 
     &::before {
-      border-color: #f8e71c;
+      border-color: #5ad89f;
     }
   }
 }
@@ -101,5 +105,5 @@
 }
 
 .Dropdown--list input:checked + label::before {
-  border-color: #f8e71c;
+  border-color: #5ad89f;
 }

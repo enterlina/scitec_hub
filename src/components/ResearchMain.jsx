@@ -23,12 +23,27 @@ class ResearchMain extends React.PureComponent {
       this.props.onLoadLang(this.props.defaultLang);
     }
     render() {
+      const filterCards = (item) => {
+        let filter = this.props.filter;
+        let result = true;
+        for(let field in filter){
+          let itemField = item[field] ? item[field] : [];
+          let filterField = filter[field];
+
+          if(filterField && itemField) { 
+            result = result && itemField.some(r=> filterField.indexOf(r) >= 0)
+          }
+        }
+        return result;
+      }
       
       document.title = 'SciTech - ' + this.props.lang.RESEARCH;
-      let filterSphere = this.props.filter.sphere ? this.props.filter.sphere : [];
+      let filter = this.props.filter;
       let cards = <NoItems/>;
       let cardData = Array.isArray(this.props.cards) ? this.props.cards : [] ;
-      
+      if(filter.length != 0) {
+        cardData = cardData.filter(filterCards);
+      }
       if(cardData.length !=0) {
         let tableData = {
           fields: [this.props.lang.TABLE_NAMING, this.props.lang.TABLE_AUTHOR, this.props.lang.TABLE_SPHERE],
@@ -58,7 +73,7 @@ class ResearchMain extends React.PureComponent {
               </div>
               
               <div className="layout-container layout-container--white noPadding">
-              <Dropdown name="sphere" type="Research"/>
+              <div className="DropdownArea"><Dropdown name="sphere" type="Research"/><Dropdown name="country" type="Research"/></div>
                 {cards}
               </div>
 
