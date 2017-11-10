@@ -7,6 +7,8 @@ require("!style-loader!css-loader!sass-loader!./Dropdown.scss");
 
 import { getDropdowns } from '../actions/dropdowns';
 import { getCardsByFilter, getCardsByType } from '../actions/cards';
+import onClickOutside from 'react-onclickoutside'
+
 class Dropdown extends React.Component {
     constructor(props) {
       super(props);
@@ -19,6 +21,11 @@ class Dropdown extends React.Component {
     }
     componentDidMount() {
       this.props.loadDropdown();
+    }
+    handleClickOutside = evt => {
+      if(this.state.isOpened) {
+        this.setState({isOpened: false})
+      }
     }
     generateTree(data) {
       // console.log(data)
@@ -184,4 +191,4 @@ export default connect(
       dispatch(getCardsByType(type));
     }
    })
-)(Dropdown);
+)(onClickOutside(Dropdown));
