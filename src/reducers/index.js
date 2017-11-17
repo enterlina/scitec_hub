@@ -15,14 +15,10 @@ import routerLocations from "./path";
 import article from "./article";
 import dropdowns from "./dropdowns";
 import filters from "./filters";
-import searchTerm from "./searchTerm";
-import pageTitle from "./title";
 
 export default combineReducers({
   routing: routerReducer,
   defaultLang,
-  searchTerm,
-  pageTitle,
   cards,
   search,
   lang,

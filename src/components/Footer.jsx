@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-require("./Footer.scss");
+require("!style-loader!css-loader!sass-loader!./Footer.scss");
 const subscribe = `<!-- Begin MailChimp Signup Form -->
                             <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
                             <div id="mc_embed_signup">
@@ -81,7 +81,7 @@ export default connect(
     state => ({
         lang: state.lang,
         defaultLang: state.defaultLang,
-        page: (state.routing.location !== null ? state.routing.location.pathname : '')
+        page: state.routing.location.pathname
     }),
     dispatch => ({
         setDefaultLang: (lang) => {

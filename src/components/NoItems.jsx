@@ -1,6 +1,6 @@
 import React from "react";
 
-require("./NoItems.scss");
+require("!style-loader!css-loader!sass-loader!./NoItems.scss");
 
 // Error
 // Warning

@@ -1,6 +1,6 @@
 import React from "react";
 
-require("./Preloader.scss");
+require("!style-loader!css-loader!sass-loader!./Preloader.scss");
 
 // Error
 // Warning

@@ -3,7 +3,7 @@ import {langArrayHandler, multipleArrTransformer, convertTextLinkIntoTag} from '
 
 import {Link} from 'react-router-dom';
 
-require("./AuthorCard.scss");
+require("!style-loader!css-loader!sass-loader!./AuthorCard.scss");
 
 class AuthorCard extends React.Component {
   render() {

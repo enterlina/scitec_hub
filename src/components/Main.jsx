@@ -9,6 +9,10 @@ import {Link} from 'react-router-dom';
 import Alert from "./Alert";
 import Preloader from "./Preloader";
 
+import { getLatestCards } from '../actions/cards';
+import { getLangVars } from '../actions/language';
+
+
 import {langArrayHandler} from '../utilities';
 
 class Main extends React.Component {
@@ -17,7 +21,7 @@ class Main extends React.Component {
       this.props.onGetLatestCards();
     }
     componentDidMount() {
-      this.props.setPageTitle('Main');
+      document.title = 'SciTech';
     }
     filterItems(type) {
       let cardData = this.props.cards;
@@ -96,25 +100,17 @@ export default connect(
     cards: state.cards,
     lang: state.lang,
     defaultLang: state.defaultLang,
-    pageTitle: state.pageTitle,
     ownProps
   }),
   dispatch => ({
-    setPageTitle: (title)=>{
-      dispatch({type: "SET_PAGE_TITLE", payload: title});
-    },
     onGetLatestCards: () => {
-      let params = {
-        type: 'cards/latest'
-      }
-      dispatch({type: "FETCH_CARDS", payload: { params: params}});
+      dispatch(getLatestCards());
     },
     onLoadLang: (lang) => {
-      let params = {
-        type: 'langvars',
-        query: lang
-      }
-      dispatch({type: "LANG_VARS", payload: { params: params, isLoader: false}});
+      dispatch(getLangVars(lang));
+    },
+    preLoader: (state) => {
+     dispatch({ type: 'ACTION_PRELOADER', payload: state });
     }
   })
 )(Main);

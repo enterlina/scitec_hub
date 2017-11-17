@@ -1,6 +1,6 @@
 import React from "react";
 
-require("./Table.scss");
+require("!style-loader!css-loader!sass-loader!./Table.scss");
 
 // example of data for this Component:
 

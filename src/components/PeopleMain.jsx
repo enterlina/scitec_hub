@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-require("./SortableFields.scss");
+require("!style-loader!css-loader!sass-loader!./SortableFields.scss");
 
 import Header from "./Header";
 import Table from "./Table";
@@ -11,18 +11,22 @@ import {Link} from 'react-router-dom';
 import Alert from "./Alert";
 import Preloader from "./Preloader";
 
+import { getLangVars } from '../actions/language';
+import { getPeople } from '../actions/people';
+
 import {langArrayHandler, getQueryVariable, multipleArrTransformer} from '../utilities';
 
 class ResearchMain extends React.Component {
     componentDidMount() {
       this.props.onGetPeople();
-      this.props.onLoadLang(this.props.defaultLang);
-      this.props.setPageTitle(this.props.lang.PEOPLE);     
+      this.props.onLoadLang(this.props.defaultLang);     
     }
     sortPeoples(field) {
       this.props.sortPeople(field);
     }
     render() {
+      document.title = 'SciTech - ' + this.props.lang.PEOPLE;
+
       let people = <NoItems />;
       let tableFields = [];
       let filterPeople = this.props.filterPeople;
@@ -101,21 +105,11 @@ export default connect(
     ownProps
   }),
   dispatch => ({
-    setPageTitle: (title)=>{
-      dispatch({type: "SET_PAGE_TITLE", payload: title});
-    },
     onGetPeople: () => {
-      let params = {
-        type: 'persons'
-      }
-      dispatch({type: "FETCH_PEOPLE", payload: {params: params}});
+      dispatch(getPeople());
     },
     onLoadLang: (lang) => {
-      let params = {
-        type: 'langvars',
-        query: lang
-      }
-      dispatch({type: "LANG_VARS", payload: { params: params, isLoader: false}});
+      dispatch(getLangVars(lang));
     },
     sortPeople: (field) => {
       dispatch({type: 'SORT_PEOPLE', payload: field});

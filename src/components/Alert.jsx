@@ -1,6 +1,6 @@
 import React from "react";
 
-require("./Alert.scss");
+require("!style-loader!css-loader!sass-loader!./Alert.scss");
 
 // Error
 // Warning

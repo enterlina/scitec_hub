@@ -10,6 +10,11 @@ import {Link} from 'react-router-dom';
 import Alert from "./Alert";
 import Preloader from "./Preloader";
 
+import { getCards, getCardsByType } from '../actions/cards';
+import { getLangVars } from '../actions/language';
+
+import { getCompanies } from '../actions/people';
+
 
 import {langArrayHandler} from '../utilities';
 
@@ -18,13 +23,13 @@ class ResearchMain extends React.Component {
       this.props.onGetCardsByType('Startup');
       this.props.onGetCompanies();
       this.props.onLoadLang(this.props.defaultLang);
-      this.props.setPageTitle(this.props.lang.COMMUNITY);
     }
     sort(key) {
       this.props.sortPeople(key);
     }
     render() {
       
+      document.title = 'SciTech - ' + this.props.lang.COMMUNITY;
 
       let cards = <NoItems/>;
       let tableFields =[];
@@ -120,30 +125,14 @@ export default connect(
     ownProps
   }),
   dispatch => ({
-    setPageTitle: (title)=>{
-      dispatch({type: "SET_PAGE_TITLE", payload: title});
-    },
     onGetCardsByType: ( type) => {
-      let params = {
-        type: 'cards/type',
-        query: type
-      }
-      
-      dispatch({type: "FETCH_CARDS", payload: { params: params}});
+      dispatch(getCardsByType(type));
     },
     onGetCompanies: ()=> {
-      
-      let params = {
-        type: 'companies'
-      }
-      dispatch({type: "FETCH_PEOPLE", payload: { params: params}});
+      dispatch(getCompanies());
     },
     onLoadLang: (lang) => {
-      let params = {
-        type: 'langvars',
-        query: lang
-      }
-      dispatch({type: "LANG_VARS", payload: { params: params, isLoader: false}});
+      dispatch(getLangVars(lang));
     },
     sortPeople: (field) => {
       dispatch({type: 'SORT_PEOPLE', payload: field});

@@ -1,4 +1,4 @@
-export default function preloader (state = true, action) {
+export default function preloader (state = [], action) {
   if (action.type === 'ACTION_PRELOADER') {
     return action.payload;
   }
