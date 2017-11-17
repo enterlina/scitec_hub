@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 
 import {substrName, langArrayHandler} from '../utilities';
 
-require("!style-loader!css-loader!sass-loader!./Dropdown.scss");
+require("./Dropdown.scss");
 
-import { getDropdowns } from '../actions/dropdowns';
-import { getCardsByFilter, getCardsByType } from '../actions/cards';
 import onClickOutside from 'react-onclickoutside'
 
 class Dropdown extends React.Component {
@@ -127,11 +125,7 @@ class Dropdown extends React.Component {
         selected: selected
       });
       this.props.setFilters(this.props.name, selected);
-      // if(selected.length != 0){
-      //   this.props.updateCards(this.props.type, this.props.name, selected)
-      // } else {
-      //   this.props.updateByType(this.props.type)
-      // }
+
     }
     // saveItems() {
     //   let form = document.getElementById('dropdownForm');
@@ -179,16 +173,13 @@ export default connect(
   }),
   dispatch => ({
     loadDropdown: () => {
-      dispatch(getDropdowns());
-    },
-    updateCards: (type, name, selected) => {
-      dispatch(getCardsByFilter(type, name, selected));
+      let params = {
+        type: 'dropdowns'
+      }
+      dispatch({type: "GET_DROPDOWNS", payload: { params: params}});
     },
     setFilters: (name, selected)=> {
       dispatch({type: "SET_FILTERS", payload: {name, selected} });
-    },
-    updateByType: (type)=>{
-      dispatch(getCardsByType(type));
     }
    })
 )(onClickOutside(Dropdown));

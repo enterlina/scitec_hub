@@ -3,7 +3,7 @@ import {substrName, getHighlightedText, langArrayHandler} from '../../utilities'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 
-require("!style-loader!css-loader!sass-loader!./SearchItem.scss");
+require("./SearchItem.scss");
 
 // Example of data 
 

@@ -10,8 +10,6 @@ import {Link} from 'react-router-dom';
 import Alert from "./Alert";
 import Preloader from "./Preloader";
 
-import { getCards, getCardsByType } from '../actions/cards';
-import { getLangVars } from '../actions/language';
 
 
 import {langArrayHandler, convertDate} from '../utilities';
@@ -20,10 +18,10 @@ class ResearchMain extends React.Component {
     componentDidMount() {
       this.props.onGetCardsByType('Meetup');
       this.props.onLoadLang(this.props.defaultLang);
+      this.props.setPageTitle(this.props.lang.MEETUP);
     }
     render() {
       
-      document.title = 'SciTech - ' + this.props.lang.MEETUP;
 
       let cards = <NoItems/>;
       let cardData = this.props.cards;
@@ -58,11 +56,22 @@ export default connect(
     ownProps
   }),
   dispatch => ({
+    setPageTitle: (title)=>{
+      dispatch({type: "SET_PAGE_TITLE", payload: title});
+    },
     onGetCardsByType: ( type) => {
-      dispatch(getCardsByType(type));
+      let params = {
+        type: 'cards/type',
+        query: type
+      }
+      dispatch({type: "FETCH_CARDS", payload: { params: params}});
     },
     onLoadLang: (lang) => {
-      dispatch(getLangVars(lang));
+      let params = {
+        type: 'langvars',
+        query: lang
+      }
+      dispatch({type: "LANG_VARS", payload: { params: params, isLoader: false}});
     }
   })
 )(ResearchMain);

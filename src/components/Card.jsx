@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {substrName, convertDate, langArrayHandler} from '../utilities';
 
-require("!style-loader!css-loader!sass-loader!./Card.scss");
+require("./Card.scss");
 
 // Example of data 
 

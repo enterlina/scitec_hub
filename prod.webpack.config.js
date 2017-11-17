@@ -2,58 +2,8 @@ const webpack = require("webpack");
 const path = require("path");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-
-HtmlWebpackPlugin.prototype.generateAssetTags = function (assets) {
-  // Turn script files into script tags
-  var scripts = assets.js.map(function (scriptPath) {
-    return {
-      tagName: 'script',
-      closeTag: true,
-      attributes: {
-        type: 'text/javascript',
-        src: '/' + scriptPath
-      }
-    };
-  });
-  // Make tags self-closing in case of xhtml
-  var selfClosingTag = !!this.options.xhtml;
-  // Turn css files into link tags
-  var styles = assets.css.map(function (stylePath) {
-    return {
-      tagName: 'link',
-      selfClosingTag: selfClosingTag,
-      attributes: {
-        href: stylePath,
-        rel: 'stylesheet'
-      }
-    };
-  });
-  // Injection targets
-  var head = [];
-  var body = [];
-
-  // If there is a favicon present, add it to the head
-  if (assets.favicon) {
-    head.push({
-      tagName: 'link',
-      selfClosingTag: selfClosingTag,
-      attributes: {
-        rel: 'shortcut icon',
-        href: assets.favicon
-      }
-    });
-  }
-  // Add styles to the head
-  head = head.concat(styles);
-  // Add scripts to body or head
-  if (this.options.inject === 'head') {
-    head = head.concat(scripts);
-  } else {
-    body = body.concat(scripts);
-  }
-  return {head: head, body: body};
-};
 
 
 
@@ -65,7 +15,7 @@ module.exports = {
       "./index.js" // the entry point of our app
     ],
     output:  {
-        filename:   "bundle.[hash].js", // the output bundle
+        filename:   "bundle.js", // the output bundle
         path:       path.join(__dirname, "dist")
     },
 
@@ -82,11 +32,19 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use:  ["style-loader", "css-loader?modules", "postcss-loader",],
+                use:  ["style-loader", "css-loader?modules"],
             },
             {
-                test:    /\.scss$/,
-                loaders: ["style-loader", "css-loader?modules", "postcss-loader", "sass-loader"]
+              test:    /\.scss$/,
+              loaders: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                      {
+                          loader: 'css-loader',
+                      },
+                    'sass-loader'
+                  ]
+              })
             },
             {
                 test:    /\.(jpe?g|png|gif|svg|ttf|woff|eot)$/i,
@@ -100,6 +58,7 @@ module.exports = {
 
     plugins:     [
         // new webpack.optimize.UglifyJsPlugin(),
+        new ExtractTextPlugin({ filename: 'bundle.css' }),
         new StyleLintPlugin(),
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({

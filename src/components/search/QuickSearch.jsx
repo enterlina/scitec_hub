@@ -1,16 +1,14 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-require("!style-loader!css-loader!sass-loader!./QuickSearch.scss");
+require("./QuickSearch.scss");
 
 import SearchField from "./SearchField";
 import SearchItem from "./SearchItem";
 
-import { search } from '../../actions/search';
-
 class QuickSearch extends React.Component {
     render() {
-      let searchItems = <SearchItem data={false}/>;
+      let searchItems = <SearchItem key={1} data={false}/>;
 
       if(this.props.searchResult){
         searchItems = this.props.searchResult.map((item, index) => <SearchItem searchWord={this.props.searchTerm} key={index} data={item}/>);;
@@ -28,8 +26,8 @@ class QuickSearch extends React.Component {
 
 export default connect(
   state => ({
-    searchResult: state.search.data,
-    searchTerm: state.search.term
+    searchResult: state.search,
+    searchTerm: state.searchTerm
   }),
   dispatch => ({ })
 )(QuickSearch);

@@ -2,9 +2,8 @@ import React from "react";
 import { connect } from 'react-redux';
 import { escapeHtml } from '../../utilities';
 
-require("!style-loader!css-loader!sass-loader!./SearchField.scss");
+require("./SearchField.scss");
 
-import { search } from '../../actions/search';
 import { createAlert } from '../../actions/alerts';
 
 class SearchField extends React.Component {
@@ -35,7 +34,12 @@ export default connect(
    }),
   dispatch => ({
     onSearch: (searchWord) => {
-      dispatch(search(searchWord));
+      let params = {
+        type: 'search',
+        query: searchWord
+      }
+      dispatch({type: "SEARCH_WORD", payload: { params: params, isLoader: false}});
+      dispatch({type: "SET_TERM", payload: searchWord});
     },
     onAlert: (params) => {
       dispatch(createAlert(params));

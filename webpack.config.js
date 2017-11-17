@@ -2,6 +2,9 @@ const webpack         = require("webpack");
 const {resolve}       = require("path");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
 
 module.exports = {
     resolve: {
@@ -38,11 +41,19 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use:  ["style-loader", "css-loader?modules", "postcss-loader",],
+                use:  ["style-loader", "css-loader?modules"],
             },
             {
                 test:    /\.scss$/,
-                loaders: ["style-loader", "css-loader?modules", "postcss-loader", "sass-loader"]
+                loaders: ExtractTextPlugin.extract({
+                  fallback: 'style-loader',
+                  use: [
+                      {
+                          loader: 'css-loader',
+                      },
+                    'sass-loader'
+                  ]
+              })
             },
             {
                 test:    /\.(jpe?g|png|gif|svg|ttf|woff|eot)$/i,
@@ -55,6 +66,7 @@ module.exports = {
     },
 
     plugins:     [
+        new ExtractTextPlugin({ filename: 'bundle.css' }),
         new StyleLintPlugin(),
         new webpack.HotModuleReplacementPlugin(), // enable HMR globally
         new webpack.NamedModulesPlugin(),

@@ -1,8 +1,8 @@
 export default function dropdowns (state = [], action) {
-  if (action.type === 'DROPDOWNS_LOADED') {
+  if (action.type === 'GET_DROPDOWNS_SUCCESS') {
     return action.payload;
   }  
-  if (action.type === 'DROPDOWNS_NOT_LOADED') {
+  if (action.type === 'GET_DROPDOWNS_FAILED') {
     return false;
   }
   return state;

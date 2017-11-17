@@ -11,16 +11,13 @@ import Alert from "./Alert";
 import Preloader from "./Preloader";
 import Dropdown from "./Dropdown";
 
-import { getCards, getCardsByType } from '../actions/cards';
-import { getLangVars } from '../actions/language';
-
-
 import {langArrayHandler} from '../utilities';
 
 class ResearchMain extends React.PureComponent {
     componentDidMount() {
       this.props.onGetCardsByType('Research');
       this.props.onLoadLang(this.props.defaultLang);
+      this.props.setPageTitle(this.props.lang.RESEARCH);  
     }
     render() {
       const filterCards = (item) => {
@@ -37,7 +34,6 @@ class ResearchMain extends React.PureComponent {
         return result;
       }
       
-      document.title = 'SciTech - ' + this.props.lang.RESEARCH;
       let filter = this.props.filter;
       let cards = <NoItems/>;
       let cardData = Array.isArray(this.props.cards) ? this.props.cards : [] ;
@@ -102,11 +98,22 @@ export default connect(
     ownProps
   }),
   dispatch => ({
+    setPageTitle: (title)=>{
+      dispatch({type: "SET_PAGE_TITLE", payload: title});
+    },
     onGetCardsByType: ( type) => {
-      dispatch(getCardsByType(type));
+      let params = {
+        type: 'cards/type',
+        query: type
+      }
+      dispatch({type: "FETCH_CARDS", payload: { params: params}});
     },
     onLoadLang: (lang) => {
-      dispatch(getLangVars(lang));
+      let params = {
+        type: 'langvars',
+        query: lang
+      }
+      dispatch({type: "LANG_VARS", payload: {params: params, isLoader: false}});
     },
     preLoader: (state) => {
      dispatch({ type: 'ACTION_PRELOADER', payload: state });

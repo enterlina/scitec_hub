@@ -1,10 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import {langArrayHandler, convertDate, multipleArrTransformer} from '../../utilities';
-require("!style-loader!css-loader!sass-loader!../InfoPage.scss");
-
-import { getPeopleById } from '../../actions/people';
-import { getLangVars } from '../../actions/language';
+require("../InfoPage.scss");
 
 import Header from "../Header";
 import Alert from "../Alert";
@@ -15,17 +12,23 @@ import {Link} from 'react-router-dom';
 
 
 class People extends React.Component {
-    componentDidMount(){
-      this.props.getPeopleById(this.props.match.params.id);
+    componentWillMount(){
       this.props.onLoadLang(this.props.defaultLang);
+      this.props.getPeopleById(this.props.match.params.id);
+    }
+    componentDidMount(){     
+    
+      let page = this.props.data;
+      let defaultLang = this.props.defaultLang;
+      this.props.setPageTitle(this.props.lang.PEOPLE + ' - ' + langArrayHandler(page.name, defaultLang)); 
+
     }
     render() {
 
       let page = this.props.data;
       let defaultLang = this.props.defaultLang;
-
-      
-      if(!page) {
+      console.log(page);
+      if(!page || page.length == 0) {
         return <Preloader />;
       }
       const shpere = page.sphere.map((item)=> this.props.lang[item]).join(', ');
@@ -41,7 +44,6 @@ class People extends React.Component {
         }
       }
 
-      document.title = 'SciTech - ' + this.props.lang.PEOPLE + ' - ' + langArrayHandler(page.name, defaultLang);
 
       return <div className="InfoPage main-content">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
@@ -156,7 +158,7 @@ class People extends React.Component {
 
 export default connect(
   state => ({
-    data: state.specificPeople[0],
+    data: state.specificPeople,
     preloader: state.preloader,
     alert: state.alert,
     lang: state.lang,
@@ -165,11 +167,22 @@ export default connect(
     filterPeople: state.filterPeople
   }),
   dispatch => ({
+    setPageTitle: (title)=>{
+      dispatch({type: "SET_PAGE_TITLE", payload: title});
+    },
     getPeopleById: (id) => {
-      dispatch(getPeopleById(id));
+      let params = {
+        type: 'person',
+        query: id
+      }
+      dispatch({type: "FETCH_SPECIFIC_PEOPLE", payload: { params: params}});
     },
     onLoadLang: (lang) => {
-      dispatch(getLangVars(lang));
+      let params = {
+        type: 'langvars',
+        query: lang
+      }
+      dispatch({type: "LANG_VARS", payload: { params: params, isLoader: false}});
     }
   })
 )(People);

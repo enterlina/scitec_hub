@@ -1,10 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import {langArrayHandler, convertDate} from '../../utilities';
-require("!style-loader!css-loader!sass-loader!../InfoPage.scss");
-
-import { getCardsById } from '../../actions/cards';
-import { getLangVars } from '../../actions/language';
+require("../InfoPage.scss");
 
 import Header from "../Header";
 import Alert from "../Alert";
@@ -14,8 +11,16 @@ import AuthorCard from "../AuthorCard";
 
 class Research extends React.Component {
     componentWillMount(){
+      
+
       this.props.getCardById(this.props.match.params.id);
       this.props.onLoadLang(this.props.defaultLang);
+
+    }
+    componentDidMount() {
+      let page = this.props.data;
+      let defaultLang = this.props.defaultLang;
+      this.props.setPageTitle(this.props.lang.STARTUPS + ' - ' + langArrayHandler(page.name, defaultLang)); 
     }
     render() {
 
@@ -23,7 +28,6 @@ class Research extends React.Component {
       let page = this.props.data;
       let defaultLang = this.props.defaultLang;
       
-      document.title = 'SciTech - ' + this.props.lang.STARTUPS + ' - ' + langArrayHandler(page.name, defaultLang);
 
       if(page.length == 0) {
         return <Preloader />;
@@ -118,11 +122,22 @@ export default connect(
     defaultLang: state.defaultLang
   }),
   dispatch => ({
-    getCardById: (lang, id) => {
-      dispatch(getCardsById(lang, id));
+    setPageTitle: (title)=>{
+      dispatch({type: "SET_PAGE_TITLE", payload: title});
+    },
+    getCardById: (id) => {
+      let params = {
+        type: 'card',
+        query: id
+      }
+      dispatch({type: "FETCH_SPECIFIC_CARD", payload: { params: params}});
     },
     onLoadLang: (lang) => {
-      dispatch(getLangVars(lang));
+      let params = {
+        type: 'langvars',
+        query: lang
+      }
+      dispatch({type: "LANG_VARS", payload: { params: params, isLoader: false}});
     }
   })
 )(Research);

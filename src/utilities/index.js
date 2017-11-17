@@ -8,6 +8,21 @@ export function substrName(name, num) {
   return name.substr(0, num).trim() + "...";
 }
 
+// url generator
+// params = {
+//   type: '',
+//   query: ''
+// }
+export function urlGenerator(apiUrl, params) {
+  let link = apiUrl;
+  let query;
+
+  query = params.type + (params.query? '/' + params.query : '')
+  link += '/' + query;
+
+  return link;
+}
+
 // выделить цветом текст
 export function getHighlightedText(text, higlight) {
     let parts = text.split(new RegExp(`(${higlight})`, 'gi'));

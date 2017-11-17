@@ -1,10 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import {langArrayHandler, convertDate} from '../../utilities';
-require("!style-loader!css-loader!sass-loader!../InfoPage.scss");
-
-import { getArticleById } from '../../actions/articles';
-import { getLangVars } from '../../actions/language';
+require("../InfoPage.scss");
 
 import Header from "../Header";
 import Alert from "../Alert";
@@ -12,9 +9,17 @@ import Preloader from "../Preloader";
 
 
 class Research extends React.Component {
-    componentWillMount(){
+    componentWillMount(){     
+      
+      
       this.props.getArticleById(this.props.match.params.id);
       this.props.onLoadLang(this.props.defaultLang);
+    }
+    componentDidMount() {
+      let page = this.props.data;
+      let defaultLang = this.props.defaultLang;
+      let name = langArrayHandler(page.name, defaultLang) ? ' - ' + langArrayHandler(page.name, defaultLang) : '' 
+      this.props.setPageTitle('Article' + name); 
     }
     render() {
 
@@ -26,7 +31,6 @@ class Research extends React.Component {
         return <Preloader />;
       }
       
-      document.title = 'SciTech - ' + this.props.lang.RESEARCH + ' - ' + langArrayHandler(page.name, defaultLang);
 
       let modifiedPageData = {
         name: langArrayHandler(page.name, defaultLang),
@@ -57,11 +61,22 @@ export default connect(
     defaultLang: state.defaultLang
   }),
   dispatch => ({
-    getArticleById: (lang, id) => {
-      dispatch(getArticleById(lang, id));
+    setPageTitle: (title)=>{
+      dispatch({type: "SET_PAGE_TITLE", payload: title});
+    },
+    getArticleById: (id) => {
+      let params = {
+        type: 'article',
+        query: id
+      }
+      dispatch({type: "FETCH_ARTICLE", payload: { params: params}});
     },
     onLoadLang: (lang) => {
-      dispatch(getLangVars(lang));
+      let params = {
+        type: 'langvars',
+        query: lang
+      }
+      dispatch({type: "LANG_VARS", payload: { params: params, isLoader: false}});
     }
   })
 )(Research);

@@ -4,10 +4,9 @@ import {Link} from 'react-router-dom';
 
 import QuickSearch from "./search/QuickSearch";
 
-require("!style-loader!css-loader!sass-loader!./Header.scss");
+require("./Header.scss");
 
-import { onLangUpdate } from '../actions/language';
-import { getCards } from '../actions/cards';
+import onClickOutside from 'react-onclickoutside';
 
 class Header extends React.Component {
     constructor() {
@@ -17,11 +16,28 @@ class Header extends React.Component {
         isMenuHidden: true
       }
     }
+    handleClickOutside = evt => {
+      if(this.state.isSearchActive) {
+        this.setState({isSearchActive: false})
+      }
+      
+      if(this.state.isMenuHidden) {
+        this.setState({isSearchActive: false})
+      }
+    }
     toggleSearch() {
       this.setState({ isSearchActive: !this.state.isSearchActive });
     }
     toggleMenu() {
       this.setState({ isMenuHidden: !this.state.isMenuHidden });
+    }
+    componentWillReceiveProps(nextProps){
+      if(this.props.pageTitle != nextProps.pageTitle) {
+        if(document && nextProps.pageTitle){
+          console.log(nextProps.pageTitle);
+          document.title = nextProps.pageTitle;
+        }
+      }
     }
     render() {
         return <header className="Header layout-container">
@@ -32,7 +48,7 @@ class Header extends React.Component {
 
             <nav className={"Header-navigation" + (this.state.isMenuHidden ? ' hideMobile' : '')} role="navigation">
                 <li><Link to="/Research" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
-                <li><Link to="/Companies" className={this.props.page.indexOf('Companies') != '-1' ? 'active-link' : ''}>{this.props.lang.COMPANIES || 'Companies'}</Link></li>
+                <li><Link to="/Companies" className={this.props.page.indexOf('Companies') != '-1' || this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.COMPANIES || 'Companies'}</Link></li>
                  <li className="about-project"><Link to="/Article/59b69a108b639c0ce1d52166">{this.props.lang.ABOUT_US || 'About Us'}</Link></li>
                 <li><a href="#" className="link-no-text icon-search" onClick={this.toggleSearch.bind(this)}>{this.props.lang.SEARCH || 'Search'}</a></li>
                 <li><a href="#" className="link-no-text plasma">Plasma +</a></li>
@@ -52,12 +68,18 @@ export default connect(
   state => ({
     lang: state.lang,
     defaultLang: state.defaultLang,
-    page: state.routing.location.pathname
+    pageTitle: state.pageTitle,
+    page: (state.routing.location !== null ? state.routing.location.pathname : '')
   }),
   dispatch => ({
     setDefaultLang: (lang) => {
+      let params = {
+        type: 'langvars',
+        query: lang
+      }
       dispatch({ type: 'SET_DEFAULT_LANG', payload: lang });
-      dispatch(onLangUpdate(lang));
+      dispatch({type: "LANG_VARS", payload: {params: params, isLoader: false}});
+
     },
   })
-)(Header);
+)(onClickOutside(Header));
